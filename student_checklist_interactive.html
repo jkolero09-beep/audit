@@ -479,6 +479,35 @@ document.getElementById('saveBtn').addEventListener('click', () => {
   document.getElementById(id).addEventListener('input', saveAll);
 });
 loadAll();
+  // ДОБАВИТЬ ЭТУ ФУНКЦИЮ - она ставит ваши заранее выбранные ответы
+function presetMyAnswers() {
+    // ВАШИ ОТВЕТЫ: укажите 0, 1 или 2 для КАЖДОГО вопроса
+    // Всего вопросов в вашем коде: 47 штук
+    const myAnswers = [
+        2, 1, 2, 0,    // 1. Назначение (4 вопроса)
+        2, 1, 2, 1, 0, // 2. Пространство (5)
+        2, 1, 2, 1, 2, 0, // 3. Эргономика (6)
+        2, 1, 2, 1, 1, // 4. Экран (5)
+        2, 0, 2, 1, 1, // 5. Форм-фактор (5)
+        2, 2, 1, 1, 2, // 6. ОЗУ (5)
+        1, 2, 1, 0, 2, // 7. Накопители (5)
+        2, 1, 1, 2, 1, // 8. Надёжность (5)
+        2, 1, 2, 1, 2, 1  // 9. Логика закупки (6)
+        // ИТОГО: 4+5+6+5+5+5+5+5+6 = 46? добавьте в конце 0 или 1, если нужно 47
+    ];
+    
+    // Перебираем все radio-кнопки и отмечаем нужные
+    let qIndex = 0;
+    document.querySelectorAll('.item').forEach((item, idx) => {
+        if (idx < myAnswers.length) {
+            const value = myAnswers[idx];
+            const radioToCheck = item.querySelector(`input[value="${value}"]`);
+            if (radioToCheck) radioToCheck.checked = true;
+        }
+        qIndex++;
+    });
+    updateSummary();
+}
 updateSummary();
 </script>
 </body>
