@@ -420,7 +420,7 @@ data.forEach((cat, ci) => {
 document.getElementById('max').textContent = maxScore;
 
 function updateSummary(){
-  let sum = 72;
+  let sum = 0;
   document.querySelectorAll('input[type="radio"]:checked').forEach(el => sum += Number(el.value));
   const percent = maxScore ? Math.round(sum / maxScore * 100) : 0;
   document.getElementById('sum').textContent = sum;
