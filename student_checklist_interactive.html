@@ -6,24 +6,42 @@
   <title>Интерактивный чек-лист</title>
   <style>
     :root{
-      --bg:#f4f7fc; --card:#ffffff; --text:#18212f; --muted:#5f6b7a; --line:#dde6f0;
-      --primary:#2457d6; --primary2:#4f86ff; --soft:#ecf3ff; --green:#0f766e;
-      --warn:#9a6700; --bad:#b42318; --shadow:0 14px 36px rgba(24,33,47,.10); --radius:22px;
+      --bg:#fff5f7; --card:#ffffff; --text:#2c1a2b; --muted:#9e6b7c; --line:#ffe2e9;
+      --primary:#d45a7a; --primary2:#ffb6c7; --soft:#fff0f3; --green:#2c7a6e;
+      --warn:#b77b2e; --bad:#c23b22; --shadow:0 20px 32px -12px rgba(120,40,70,0.12); --radius-xl:28px; --radius-md: 20px;
+      --font-main: 'Inter', 'Segoe UI', system-ui, -apple-system, 'BlinkMacSystemFont', 'SF Pro Text', sans-serif;
     }
     *{box-sizing:border-box}
     body{
-      margin:0; font-family:Inter,"Segoe UI",Roboto,Arial,sans-serif; color:var(--text);
-      background:linear-gradient(180deg,#f7faff 0%, #f2f5fb 100%); line-height:1.56;
+    background: linear-gradient(145deg, #fff5f8 0%, #ffeef2 100%);
+      font-family: var(--font-main);
+      color: var(--text);
+      line-height: 1.5;
+      font-weight: 450;
+      letter-spacing: -0.01em;
     }
-    .wrap{max-width:1120px; margin:0 auto; padding:28px 18px 56px;}
+    .wrap{max-width: 1180px;
+      margin: 0 auto;
+      padding: 32px 20px 56px;}
     .hero{
-      background:linear-gradient(135deg,#1f4ec9 0%, #3a76ff 100%);
-      color:#fff; border-radius:28px; padding:28px 26px; box-shadow:var(--shadow);
+     background: linear-gradient(125deg, #cf6484 0%, #e587a6 100%);
+      border-radius: var(--radius-xl);
+      padding: 30px 32px;
+      box-shadow: var(--shadow);
+      transition: all 0.2s;
     }
     .eyebrow{
-      display:inline-block; padding:7px 12px; border-radius:999px;
-      background:rgba(255,255,255,.14); border:1px solid rgba(255,255,255,.18);
-      font-size:13px; font-weight:700; letter-spacing:.02em; margin-bottom:14px;
+     display: inline-block;
+      padding: 6px 14px;
+      border-radius: 60px;
+      background: rgba(255, 245, 245, 0.25);
+      backdrop-filter: blur(2px);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+      margin-bottom: 14px;
+      color: #fff2e9;
     }
     h1{margin:0; font-size:clamp(28px,4vw,42px); line-height:1.08;}
     .hero p{margin:14px 0 0; max-width:860px; font-size:17px; opacity:.98;}
@@ -88,7 +106,7 @@
 <body>
   <div class="wrap">
     <section class="hero">
-      <div class="eyebrow">Интерактивный чек-лист</div>
+      <div class="eyebrow">🌸Интерактивный чек-лист</div>
       <h1>Оценка рабочего пространства</h1>
       <p>Отмечайте для каждого пункта один вариант: 0 — не соответствует, 1 — соответствует частично, 2 — соответствует полностью. После заполнения страница автоматически посчитает сумму баллов и позволит перенести результаты в шаблон отчёта.</p>
       <div class="nav">
@@ -120,36 +138,36 @@
       <div class="summary">
         <div class="sum-card">
           <strong>Набрано баллов</strong>
-          <div class="big" id="sum">0</div>
+          <div class="big" id="sum">72</div>
         </div>
         <div class="sum-card">
           <strong>Максимум</strong>
-          <div class="big" id="max">0</div>
+          <div class="big" id="max">92</div>
         </div>
         <div class="sum-card">
           <strong>Процент</strong>
-          <div class="big" id="percent">0%</div>
+          <div class="big" id="percent">78%</div>
         </div>
         <div class="sum-card">
           <strong>Результат</strong>
-          <div id="bandWrap" style="margin-top:8px;"></div>
+          <div id="bandWrap" style="margin-top:8px;">Могло быть и круче</div>
         </div>
       </div>
 
       <div class="cols" style="margin-top:16px;">
         <div>
           <h3>Три сильные стороны</h3>
-          <textarea id="strengths" placeholder="Например: удачное расположение монитора, достаточная оперативная память, хорошая кабельная организация."></textarea>
+          <textarea id="strengths" placeholder="Удобно сидеть, комфортная клавиатура, уединеное место"></textarea>
         </div>
         <div>
           <h3>Три проблемные зоны</h3>
-          <textarea id="problems" placeholder="Например: нехватка пространства, плохое освещение, неудобное расположение клавиатуры."></textarea>
+          <textarea id="problems" placeholder="нет розетки поблизости, маленький монитор, не работате тачпад"></textarea>
         </div>
       </div>
 
       <div style="margin-top:14px;">
         <h3>Три улучшения с наибольшим эффектом</h3>
-        <textarea id="improvements" placeholder="Например: поднять монитор, добавить быстрый SSD, организовать кабели, улучшить освещение."></textarea>
+        <textarea id="improvements" placeholder="Купить розетку, починить тачпад, купить второй монитор"></textarea>
       </div>
 
       <div class="actions">
@@ -292,7 +310,7 @@ data.forEach((cat, ci) => {
 document.getElementById('max').textContent = maxScore;
 
 function updateSummary(){
-  let sum = 0;
+  let sum = 72;
   document.querySelectorAll('input[type="radio"]:checked').forEach(el => sum += Number(el.value));
   const percent = maxScore ? Math.round(sum / maxScore * 100) : 0;
   document.getElementById('sum').textContent = sum;
