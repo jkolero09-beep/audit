@@ -478,7 +478,7 @@ document.getElementById('saveBtn').addEventListener('click', () => {
 ['strengths','problems','improvements'].forEach(id => {
   document.getElementById(id).addEventListener('input', saveAll);
 });
-loadAll();
+presetMyAnswers();
 function presetMyAnswers() {
     const myAnswers = [
         2, 1, 2, 0,   
