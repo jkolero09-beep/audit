@@ -5,59 +5,149 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Инструкция по HTML и работе с ИИ</title>
   <style>
+    /* НЕЖНО-РОЗОВАЯ ПАЛИТРА */
     :root{
-      --bg:#f4f7fc; --card:#ffffff; --text:#18212f; --muted:#5f6b7a; --line:#dde6f0;
-      --primary:#2457d6; --primary2:#4f86ff; --soft:#ecf3ff; --green:#0f766e; --warn:#9a6700;
-      --shadow:0 14px 36px rgba(24,33,47,.10); --radius:22px;
+      --bg:#fff5f7; --card:#ffffff; --text:#2c1a2b; --muted:#9e6b7c; --line:#ffe2e9;
+      --primary:#d45a7a; --primary2:#ffb6c7; --soft:#fff0f3; --green:#2c7a6e;
+      --warn:#b77b2e; --bad:#c23b22; --shadow:0 20px 32px -12px rgba(120,40,70,0.12);
+      --radius-xl:28px; --radius-md:20px; --radius:22px;
+      --font-main: 'Inter', 'Segoe UI', system-ui, -apple-system, 'SF Pro Text', sans-serif;
     }
     *{box-sizing:border-box}
-    body{margin:0;font-family:Inter,"Segoe UI",Roboto,Arial,sans-serif;color:var(--text);background:linear-gradient(180deg,#f7faff 0%, #f2f5fb 100%);line-height:1.58;}
+    body{
+      margin:0;
+      font-family:var(--font-main);
+      color:var(--text);
+      background:linear-gradient(145deg, #fff5f8 0%, #ffeef2 100%);
+      line-height:1.58;
+    }
     .wrap{max-width:1100px;margin:0 auto;padding:28px 18px 56px;}
-    .hero{background:linear-gradient(135deg,#1f4ec9 0%, #3a76ff 100%);color:#fff;border-radius:28px;padding:28px 26px;box-shadow:var(--shadow);}
-    .eyebrow{display:inline-block;padding:7px 12px;border-radius:999px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.18);font-size:13px;font-weight:700;letter-spacing:.02em;margin-bottom:14px;}
-    h1{margin:0;font-size:clamp(28px,4vw,42px);line-height:1.08;}
-    .hero p{margin:14px 0 0;max-width:860px;font-size:17px;opacity:.98;}
+    .hero{
+      background:linear-gradient(125deg, #cf6484 0%, #e587a6 100%);
+      color:#fff;
+      border-radius:var(--radius-xl);
+      padding:28px 26px;
+      box-shadow:var(--shadow);
+    }
+    .eyebrow{
+      display:inline-block;
+      padding:6px 14px;
+      border-radius:60px;
+      background:rgba(255,245,245,0.25);
+      border:1px solid rgba(255,255,255,0.5);
+      font-size:13px;
+      font-weight:600;
+      letter-spacing:.3px;
+      margin-bottom:14px;
+    }
+    h1{margin:0;font-size:clamp(28px,4vw,42px);line-height:1.08;font-weight:700;letter-spacing:-0.02em;}
+    .hero p{margin:14px 0 0;max-width:860px;font-size:17px;opacity:.95;}
     .nav{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px;}
-    .btn{text-decoration:none;display:inline-flex;align-items:center;justify-content:center;padding:11px 16px;border-radius:14px;font-weight:700;transition:.2s ease;border:1px solid transparent;}
-    .btn.primary{background:#fff;color:#1f4ec9;}
-    .btn.secondary{background:rgba(255,255,255,.12);color:#fff;border-color:rgba(255,255,255,.20);}
-    .section{margin-top:18px;background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);border:1px solid #edf2f8;padding:24px 22px;}
-    .section h2{margin:0 0 10px;font-size:26px;line-height:1.15;}
+    .btn{
+      text-decoration:none;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:10px 18px;
+      border-radius:44px;
+      font-weight:600;
+      font-size:0.9rem;
+      transition:.2s ease;
+      border:none;
+      cursor:pointer;
+    }
+    .btn.primary{background:#fff;color:#c45374;box-shadow:0 4px 10px rgba(0,0,0,0.05);}
+    .btn.primary:hover{background:#ffeef4;transform:translateY(-2px);}
+    .btn.secondary{background:rgba(255,235,240,0.25);color:#fff;border:1px solid rgba(255,255,255,0.5);}
+    .section{
+      margin-top:24px;
+      background:var(--card);
+      border-radius:var(--radius-xl);
+      box-shadow:var(--shadow);
+      border:1px solid #ffebf0;
+      padding:24px 22px;
+    }
+    .section h2{margin:0 0 12px;font-size:26px;line-height:1.15;color:#b34b6b;font-weight:650;}
     .lead{margin:0 0 14px;color:var(--muted);font-size:16px;}
     .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
-    .card{border:1px solid var(--line);border-radius:18px;padding:16px;background:#fff;}
-    .card h3{margin:0 0 8px;font-size:19px;}
+    .card{
+      border:1px solid #ffe2ec;
+      border-radius:24px;
+      padding:18px 20px;
+      background:#fffefe;
+    }
+    .card h3{margin:0 0 10px;font-size:1.2rem;color:#ad4d6e;}
     .card p{margin:0;color:var(--muted);}
     .steps{display:grid;gap:12px;}
-    .step{display:grid;grid-template-columns:52px 1fr;gap:14px;align-items:flex-start;border:1px solid var(--line);border-radius:18px;padding:14px;}
-    .num{width:52px;height:52px;border-radius:16px;background:var(--soft);color:var(--primary);display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:800;}
-    .note{border-radius:18px;padding:16px 18px;border:1px solid #d6ebdf;background:#f1fcf6;}
-    .note strong{color:var(--green);}
-    .warn{border-radius:18px;padding:16px 18px;border:1px solid #f3dfb3;background:#fff9eb;}
-    .warn strong{color:var(--warn);}
-    pre{white-space:pre-wrap;background:#0f172a;color:#e2e8f0;padding:14px;border-radius:16px;overflow:auto;font-size:14px;}
+    .step{
+      display:grid;
+      grid-template-columns:52px 1fr;
+      gap:14px;
+      align-items:flex-start;
+      border:1px solid #ffe2ec;
+      border-radius:24px;
+      padding:14px;
+      background:#fffefe;
+    }
+    .num{
+      width:52px;
+      height:52px;
+      border-radius:20px;
+      background:#fff0f3;
+      color:#d45a7a;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:22px;
+      font-weight:800;
+    }
+    .note{
+      border-radius:24px;
+      padding:16px 20px;
+      background:#fff3f6;
+      border-left:5px solid #e590ac;
+    }
+    .note strong{color:#c55b7c;}
+    .warn{
+      border-radius:24px;
+      padding:16px 20px;
+      background:#fff3e2;
+      border-left:5px solid #e5a86b;
+    }
+    .warn strong{color:#b8621a;}
+    pre{
+      white-space:pre-wrap;
+      background:#2c1a2b;
+      color:#ffdfea;
+      padding:14px 18px;
+      border-radius:20px;
+      overflow:auto;
+      font-size:14px;
+      font-family:monospace;
+      margin:12px 0;
+    }
     ul{margin:0;padding-left:20px;}
-    li{margin:8px 0;}
+    li{margin:8px 0; color:var(--text);}
     @media (max-width:900px){.grid{grid-template-columns:1fr;}}
   </style>
 </head>
 <body>
   <div class="wrap">
     <section class="hero">
-      <div class="eyebrow">Инструкция</div>
+      <div class="eyebrow">🌸 Инструкция</div>
       <h1>Как редактировать HTML-файлы и использовать ИИ как помощника</h1>
       <p>Эта страница поможет аккуратно работать с шаблонами, не ломать структуру HTML, правильно выбирать редактор и использовать ИИ для доработки текста, структуры и оформления.</p>
       <div class="nav">
-        <a class="btn primary" href="student_checklist_interactive.html">Открыть чек-лист</a>
-        <a class="btn secondary" href="student_report_template.html">Открыть шаблон отчёта</a>
-        <a class="btn secondary" href="student_infrastructure_project.html">Проект оборудования</a>
-        <a class="btn secondary" href="index.html">Главная страница</a>
-        <a class="btn secondary" href="student_publish_site_guide.html">Публикация сайта</a>
+        <a class="btn primary" href="student_checklist_interactive.html">📋 Открыть чек-лист</a>
+        <a class="btn secondary" href="student_report_template.html">📄 Открыть шаблон отчёта</a>
+        <a class="btn secondary" href="student_infrastructure_project.html">🛠 Проект оборудования</a>
+        <a class="btn secondary" href="index.html">🏠 Главная страница</a>
+        <a class="btn secondary" href="student_publish_site_guide.html">🌐 Публикация сайта</a>
       </div>
     </section>
 
     <section class="section">
-      <h2>С чего начать</h2>
+      <h2>🚀 С чего начать</h2>
       <div class="steps">
         <div class="step"><div class="num">1</div><div><h3>Скачайте нужный HTML-файл</h3><p class="lead">Для итоговой работы используйте шаблон отчёта. Для анализа — интерактивный чек-лист.</p></div></div>
         <div class="step"><div class="num">2</div><div><h3>Откройте файл в обычном текстовом редакторе</h3><p class="lead">Лучше использовать Visual Studio Code, Sublime Text, BBEdit, Notepad++ или аналогичный редактор, который работает с plain text.</p></div></div>
@@ -68,10 +158,10 @@
     </section>
 
     <section class="section">
-      <h2>Какие редакторы подходят</h2>
+      <h2>📝 Какие редакторы подходят</h2>
       <div class="grid">
         <div class="card">
-          <h3>Подходящие варианты</h3>
+          <h3>✅ Подходящие варианты</h3>
           <ul>
             <li>Visual Studio Code</li>
             <li>Sublime Text</li>
@@ -81,7 +171,7 @@
           </ul>
         </div>
         <div class="card">
-          <h3>Что важно</h3>
+          <h3>⚠️ Что важно</h3>
           <ul>
             <li>Файл должен быть сохранён как plain text</li>
             <li>Расширение файла — .html</li>
@@ -93,9 +183,9 @@
     </section>
 
     <section class="section">
-      <h2>Чего лучше не делать</h2>
+      <h2>❌ Чего лучше не делать</h2>
       <div class="warn">
-        <strong>Осторожно:</strong> не редактируйте HTML как rich text документ. Если файл сохраняется как RTF, DOCX или Pages-документ, браузер не откроет его корректно как веб-страницу.
+        <strong>⚠️ Осторожно:</strong> не редактируйте HTML как rich text документ. Если файл сохраняется как RTF, DOCX или Pages-документ, браузер не откроет его корректно как веб-страницу.
       </div>
       <div class="grid" style="margin-top:14px;">
         <div class="card">
@@ -118,11 +208,11 @@
     </section>
 
     <section class="section">
-      <h2>Как использовать ИИ как помощника</h2>
+      <h2>🤖 Как использовать ИИ как помощника</h2>
       <p class="lead">ИИ можно использовать как инструмент для формулировок, структуры, улучшения языка, помощи с HTML и проверки логики отчёта. При этом наблюдения, фотографии, выводы и смысловое содержание работы должны оставаться вашими.</p>
       <div class="grid">
         <div class="card">
-          <h3>Что можно поручить ИИ</h3>
+          <h3>✅ Что можно поручить ИИ</h3>
           <ul>
             <li>Улучшить формулировки текста</li>
             <li>Сделать выводы яснее и логичнее</li>
@@ -132,7 +222,7 @@
           </ul>
         </div>
         <div class="card">
-          <h3>Что нельзя перекладывать на ИИ полностью</h3>
+          <h3>❌ Что нельзя перекладывать на ИИ полностью</h3>
           <ul>
             <li>Реальный аудит пространства</li>
             <li>Наблюдения по фотографии или месту</li>
@@ -141,7 +231,7 @@
           </ul>
         </div>
       </div>
-      <h3 style="margin-top:16px;">Универсальный промпт для любой ИИ-модели</h3>
+      <h3 style="margin-top:16px; color:#ad4d6e;">📋 Универсальный промпт для любой ИИ-модели</h3>
       <pre>Помоги мне оформить мой отчёт по анализу рабочего пространства.
 Сохрани академический стиль, но сделай текст понятным и логичным.
 Не выдумывай факты, а опирайся только на мои данные.
@@ -155,25 +245,28 @@
     </section>
 
     <section class="section">
-      <h2>Как построить итоговую работу</h2>
+      <h2>🏗 Как построить итоговую работу</h2>
       <div class="steps">
         <div class="step"><div class="num">1</div><div><h3>Опишите объект анализа</h3><p class="lead">Что это за рабочее место и для каких задач оно используется.</p></div></div>
         <div class="step"><div class="num">2</div><div><h3>Покажите результат чек-листа</h3><p class="lead">Итоговый балл, интерпретация, сильные стороны, проблемы.</p></div></div>
         <div class="step"><div class="num">3</div><div><h3>Предложите улучшения</h3><p class="lead">Разделите их на быстрые решения без бюджета и решения, требующие вложений.</p></div></div>
         <div class="step"><div class="num">4</div><div><h3>Добавьте визуальные материалы</h3><p class="lead">Фотографии, схему, примеры или референсы — так, чтобы они усиливали анализ, а не заменяли его.</p></div></div>
       </div>
-      <div class="note" style="margin-top:14px;"><strong>Хороший результат</strong> — это не просто “красивый HTML”, а связный, самостоятельный и осмысленный анализ рабочего пространства.</div>
+      <div class="note" style="margin-top:14px;"><strong>💡 Хороший результат</strong> — это не просто “красивый HTML”, а связный, самостоятельный и осмысленный анализ рабочего пространства.</div>
     </section>
   
     <section class="section">
-      <h2>Следующий шаг: публикация готовой работы</h2>
+      <h2>🌍 Следующий шаг: публикация готовой работы</h2>
       <p class="lead">Когда HTML-страница уже собрана и проверена в браузере, её можно превратить в настоящий опубликованный мини-сайт.</p>
-      <div class="note"><strong>Продолжение маршрута:</strong> откройте отдельную инструкцию по созданию репозитория и публикации сайта через GitHub Pages.</div>
+      <div class="note"><strong>📖 Продолжение маршрута:</strong> откройте отдельную инструкцию по созданию репозитория и публикации сайта через GitHub Pages.</div>
       <div class="nav" style="margin-top:14px;">
-        <a class="btn primary" href="student_publish_site_guide.html">Открыть инструкцию по публикации</a>
+        <a class="btn primary" href="student_publish_site_guide.html">📚 Открыть инструкцию по публикации</a>
       </div>
     </section>
 
+    <div class="footer" style="margin-top:18px; text-align:center; color:#b28090; font-size:14px;">
+      🌸 Инструкция подготовлена для студентов ИТ-направлений. Используйте ИИ как помощника, но сохраняйте самостоятельность в выводах.
+    </div>
   </div>
 </body>
 </html>
