@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Шаблон отчёта студента | Аудит рабочего пространства</title>
   <style>
-    /* НЕЖНО-РОЗОВАЯ ПАЛИТРА (как в чек-листе) */
     :root {
       --bg: #fff5f7;
       --card: #ffffff;
@@ -188,7 +187,7 @@
     </div>
     <div style="margin-top:14px;">
       <h3>Назначение рабочего пространства</h3>
-      <textarea id="purpose" placeholder="Кратко опишите, для каких задач используется это место">Учёба, работа с документами, аналитика данных, видеоконференции, лёгкое программирование и графические задачи. Место используется 8+ часов в день, требуется баланс производительности и эргономики.</textarea>
+      <textarea id="purpose" placeholder="Кратко опишите, для каких задач используется это место">Учёба, работа с документами, аналитика данных, видеоконференции, лёгкое программирование и графические задачи. Место используется 3+ часов в день, требуется баланс производительности и эргономики.</textarea>
     </div>
   </section>
 
@@ -337,7 +336,6 @@ function loadChecklistData() {
   }
 }
 
-// Сохранение отчёта в localStorage
 function saveReport() {
   const ids = ['studentName','objectName','purpose','strengths','problems','improvements','noBudget','withBudget','justification','finalConclusion'];
   const payload = {};
@@ -348,7 +346,6 @@ function saveReport() {
   localStorage.setItem('workspaceReportDraft', JSON.stringify(payload));
 }
 
-// Загрузка сохранённых полей отчёта
 function loadReport() {
   const raw = localStorage.getItem('workspaceReportDraft');
   if (!raw) return;
@@ -361,14 +358,11 @@ function loadReport() {
   } catch(e) {}
 }
 
-// Автосохранение при вводе
 document.querySelectorAll('textarea, input[type="text"]').forEach(el => el.addEventListener('input', saveReport));
 
-// Инициализация
 loadChecklistData();
 loadReport();
 
-// Слушаем изменения в localStorage (если данные чек-листа обновились на другой вкладке)
 window.addEventListener('storage', (e) => {
   if (e.key === 'workspaceChecklistData') {
     loadChecklistData();
