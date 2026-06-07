@@ -5,109 +5,117 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Проект ИТ-инфраструктуры и рабочего пространства</title>
   <style>
+    /* НЕЖНО-РОЗОВАЯ ПАЛИТРА */
     :root{
-      --bg:#f4f7fc; --card:#ffffff; --text:#18212f; --muted:#5f6b7a; --line:#dde6f0;
-      --primary:#2457d6; --primary2:#4f86ff; --soft:#ecf3ff; --green:#0f766e; --warn:#9a6700;
-      --bad:#b42318; --ink:#0f172a; --shadow:0 14px 36px rgba(24,33,47,.10); --radius:22px;
+      --bg:#fff5f7; --card:#ffffff; --text:#2c1a2b; --muted:#9e6b7c; --line:#ffe2e9;
+      --primary:#d45a7a; --primary2:#ffb6c7; --soft:#fff0f3; --green:#2c7a6e;
+      --warn:#b77b2e; --bad:#c23b22; --ink:#2c1a2b; --shadow:0 20px 32px -12px rgba(120,40,70,0.12);
+      --radius-xl:28px; --radius-md:20px; --radius:22px;
+      --font-main: 'Inter', 'Segoe UI', system-ui, -apple-system, 'SF Pro Text', sans-serif;
     }
     *{box-sizing:border-box}
     body{
-      margin:0; font-family:Inter,"Segoe UI",Roboto,Arial,sans-serif; color:var(--text);
-      background:linear-gradient(180deg,#f7faff 0%, #f2f5fb 100%); line-height:1.58;
+      margin:0; font-family:var(--font-main); color:var(--text);
+      background:linear-gradient(145deg, #fff5f8 0%, #ffeef2 100%); line-height:1.58;
     }
     .wrap{max-width:1140px; margin:0 auto; padding:28px 18px 56px;}
     .hero{
-      background:linear-gradient(135deg,#1f4ec9 0%, #3a76ff 100%);
-      color:#fff; border-radius:28px; padding:28px 26px; box-shadow:var(--shadow);
+      background:linear-gradient(125deg, #cf6484 0%, #e587a6 100%);
+      color:#fff; border-radius:var(--radius-xl); padding:28px 26px; box-shadow:var(--shadow);
     }
     .eyebrow{
-      display:inline-block; padding:7px 12px; border-radius:999px;
-      background:rgba(255,255,255,.14); border:1px solid rgba(255,255,255,.18);
-      font-size:13px; font-weight:700; letter-spacing:.02em; margin-bottom:14px;
+      display:inline-block; padding:6px 14px; border-radius:60px;
+      background:rgba(255,245,245,0.25); border:1px solid rgba(255,255,255,0.5);
+      font-size:13px; font-weight:600; letter-spacing:.3px; margin-bottom:14px;
     }
-    h1{margin:0; font-size:clamp(28px,4vw,42px); line-height:1.08;}
-    h2{margin:0 0 10px; font-size:26px; line-height:1.15;}
-    h3{margin:0 0 8px; font-size:19px; line-height:1.22;}
-    .hero p{margin:14px 0 0; max-width:900px; font-size:17px; opacity:.98;}
+    h1{margin:0; font-size:clamp(28px,4vw,42px); line-height:1.08; font-weight:700; letter-spacing:-0.02em;}
+    h2{margin:0 0 10px; font-size:26px; line-height:1.15; color:#b34b6b;}
+    h3{margin:0 0 8px; font-size:19px; line-height:1.22; color:#ad4d6e;}
+    .hero p{margin:14px 0 0; max-width:900px; font-size:17px; opacity:.95;}
     .nav{display:flex; gap:10px; flex-wrap:wrap; margin-top:14px;}
     .btn{
       text-decoration:none; display:inline-flex; align-items:center; justify-content:center;
-      padding:11px 16px; border-radius:14px; font-weight:700; transition:.2s ease;
-      border:1px solid transparent; cursor:pointer; font:inherit;
+      padding:10px 18px; border-radius:44px; font-weight:600; font-size:0.9rem;
+      transition:.2s ease; border:none; cursor:pointer; font:inherit;
     }
-    .btn.primary{background:#fff; color:#1f4ec9;}
-    .btn.secondary{background:rgba(255,255,255,.12); color:#fff; border-color:rgba(255,255,255,.20);}
-    .btn.action{background:linear-gradient(135deg,#2457d6 0%, #4f86ff 100%); color:#fff; box-shadow:0 10px 24px rgba(36,87,214,.18);}
-    .btn.light{background:#fff; color:var(--primary); border-color:#cfddfb;}
-    .btn.warn{background:#fff9eb; color:#7a4a00; border-color:#f3dfb3;}
-    .btn.danger{background:#fff; color:var(--bad); border-color:#fecaca;}
+    .btn.primary{background:#fff; color:#c45374; box-shadow:0 4px 10px rgba(0,0,0,0.05);}
+    .btn.primary:hover{background:#ffeef4; transform:translateY(-2px);}
+    .btn.secondary{background:rgba(255,235,240,0.25); color:#fff; border:1px solid rgba(255,255,255,0.5);}
+    .btn.action{background:linear-gradient(115deg, #e07395 0%, #d45a7a 100%); color:#fff; box-shadow:0 6px 12px -8px rgba(177,70,100,0.4);}
+    .btn.action:hover{background:#ce5f80; transform:scale(0.98);}
+    .btn.light{background:#fff; color:#d45a7a; border:1.5px solid #ffe2ec;}
+    .btn.warn{background:#fff9eb; color:#b8621a; border:1px solid #ffe0b5;}
+    .btn.danger{background:#fff; color:#c23b22; border:1px solid #ffcdc5;}
     .btn:hover{transform:translateY(-1px);}
     .section{
-      margin-top:18px; background:var(--card); border-radius:var(--radius);
-      box-shadow:var(--shadow); border:1px solid #edf2f8; padding:24px 22px;
+      margin-top:24px; background:var(--card); border-radius:var(--radius-xl);
+      box-shadow:var(--shadow); border:1px solid #ffebf0; padding:24px 22px;
     }
     .lead{margin:0 0 14px; color:var(--muted); font-size:16px;}
     .grid{display:grid; grid-template-columns:1fr 1fr; gap:14px;}
     .grid.three{grid-template-columns:repeat(3,1fr);}
-    .card{border:1px solid var(--line); border-radius:18px; padding:16px; background:#fff;}
+    .card{border:1px solid #ffe2ec; border-radius:24px; padding:18px 20px; background:#fffefe;}
     .card p{margin:0; color:var(--muted);}
-    .note{border-radius:18px; padding:16px 18px; border:1px solid #d6ebdf; background:#f1fcf6;}
-    .note strong{color:var(--green);}
-    .warn-box{border-radius:18px; padding:16px 18px; border:1px solid #f3dfb3; background:#fff9eb;}
-    .warn-box strong{color:var(--warn);}
+    .note{border-radius:24px; padding:16px 20px; background:#fff3f6; border-left:5px solid #e590ac;}
+    .note strong{color:#c55b7c;}
+    .warn-box{border-radius:24px; padding:16px 20px; background:#fff3e2; border-left:5px solid #e5a86b;}
+    .warn-box strong{color:#b8621a;}
     .field, textarea, select{
-      width:100%; border:1px solid var(--line); border-radius:14px; padding:12px 14px;
-      font:inherit; color:var(--text); background:#fff;
+      width:100%; border:1.5px solid #ffe2ec; border-radius:20px; padding:12px 16px;
+      font:inherit; color:var(--text); background:#fffdfe; transition:0.2s;
+    }
+    .field:focus, textarea:focus, select:focus{
+      outline:none; border-color:#e58aa8; box-shadow:0 0 0 3px rgba(212,90,122,0.2);
     }
     textarea{min-height:116px; resize:vertical;}
     .small{min-height:86px;}
-    label.caption{display:block; font-weight:700; margin:0 0 7px;}
+    label.caption{display:block; font-weight:700; margin:0 0 7px; color:#ad4d6e;}
     .form-grid{display:grid; grid-template-columns:1fr 1fr; gap:14px;}
     .form-grid .wide{grid-column:1 / -1;}
     .row-list{display:grid; gap:12px;}
     .dynamic-row{
-      border:1px solid var(--line); border-radius:18px; padding:14px; background:#fff;
+      border:1px solid #ffe2ec; border-radius:24px; padding:14px; background:#fffefe;
       display:grid; gap:12px;
     }
     .row-head{display:flex; align-items:center; justify-content:space-between; gap:10px;}
-    .row-title{font-weight:800; color:var(--primary);}
+    .row-title{font-weight:800; color:#d45a7a;}
     .mini-grid{display:grid; grid-template-columns:1fr 1fr 1fr; gap:10px;}
     .two-grid{display:grid; grid-template-columns:1fr 1fr; gap:10px;}
     .media-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:14px;}
-    .media-card{border:1px solid var(--line); border-radius:18px; padding:14px; background:#fff;}
+    .media-card{border:1px solid #ffe2ec; border-radius:24px; padding:16px; background:#fffefe;}
     .media-preview{
-      min-height:190px; border:2px dashed #cfdcf0; border-radius:16px; background:#fbfcfe;
-      display:flex; align-items:center; justify-content:center; text-align:center; color:var(--muted);
+      min-height:170px; border:2px dashed #ffd9e4; border-radius:20px; background:#fffbfc;
+      display:flex; align-items:center; justify-content:center; text-align:center; color:#b28090;
       overflow:hidden; padding:12px; margin:8px 0 12px;
     }
-    .media-preview img{width:100%; height:100%; max-height:260px; object-fit:cover; border-radius:12px; display:block;}
+    .media-preview img{width:100%; height:100%; max-height:230px; object-fit:cover; border-radius:16px; display:block;}
     .check-grid{display:grid; grid-template-columns:1fr 1fr; gap:12px;}
-    .check-card{border:1px solid var(--line); border-radius:18px; padding:14px; background:#fff;}
+    .check-card{border:1px solid #ffe2ec; border-radius:24px; padding:14px; background:#fffefe;}
     .check-card h3{font-size:18px;}
-    .check-item{display:flex; gap:9px; align-items:flex-start; padding:8px 0; border-top:1px dashed #e7edf5;}
+    .check-item{display:flex; gap:9px; align-items:flex-start; padding:8px 0; border-top:1px dashed #ffe2ec;}
     .check-item:first-of-type{border-top:0;}
-    .check-item input{margin-top:5px;}
-    .score-bar{height:12px; border-radius:999px; background:#e8eef8; overflow:hidden;}
-    .score-fill{height:100%; width:0%; background:linear-gradient(90deg,#0f766e 0%, #4f86ff 100%); transition:.2s ease;}
+    .check-item input{margin-top:5px; accent-color:#d45a7a;}
+    .score-bar{height:12px; border-radius:999px; background:#ffe2ec; overflow:hidden; margin-top:12px;}
+    .score-fill{height:100%; width:0%; background:linear-gradient(90deg,#2c7a6e 0%, #d45a7a 100%); transition:.2s ease;}
     .summary{display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-top:14px;}
-    .sum-card{background:#fff; border:1px solid var(--line); border-radius:18px; padding:16px;}
-    .sum-card strong{display:block; font-size:14px; color:var(--muted);}
-    .big{font-size:34px; font-weight:800; color:var(--primary); line-height:1; margin-top:8px;}
+    .sum-card{background:#fffafb; border:1px solid #ffe2eb; border-radius:24px; padding:16px;}
+    .sum-card strong{display:block; font-size:14px; color:#b56683; text-transform:uppercase;}
+    .big{font-size:34px; font-weight:800; color:#d45a7a; line-height:1; margin-top:8px;}
     .pill{
-      display:inline-block; background:#eef4ff; color:#2457d6; padding:6px 10px;
-      border-radius:999px; font-size:13px; font-weight:700; margin:0 8px 8px 0;
+      display:inline-block; background:#fff0f3; color:#d45a7a; padding:6px 12px;
+      border-radius:40px; font-size:13px; font-weight:700; margin:0 8px 8px 0;
     }
     .steps{display:grid; gap:12px;}
     .step{
       display:grid; grid-template-columns:52px 1fr; gap:14px; align-items:flex-start;
-      border:1px solid var(--line); border-radius:18px; padding:14px;
+      border:1px solid #ffe2ec; border-radius:24px; padding:14px; background:#fffefe;
     }
     .num{
-      width:52px; height:52px; border-radius:16px; background:var(--soft); color:var(--primary);
+      width:52px; height:52px; border-radius:20px; background:#fff0f3; color:#d45a7a;
       display:flex; align-items:center; justify-content:center; font-size:22px; font-weight:800;
     }
     .actions{display:flex; gap:10px; flex-wrap:wrap; margin-top:16px;}
-    .footer{margin-top:18px; text-align:center; color:var(--muted); font-size:14px;}
+    .footer{margin-top:18px; text-align:center; color:#b28090; font-size:14px;}
     @media (max-width:960px){
       .grid,.grid.three,.form-grid,.mini-grid,.two-grid,.media-grid,.check-grid,.summary{grid-template-columns:1fr;}
       .form-grid .wide{grid-column:auto;}
@@ -123,33 +131,33 @@
 <body>
   <div class="wrap">
     <section class="hero">
-      <div class="eyebrow">Проектное задание</div>
+      <div class="eyebrow">🌸 Проектное задание</div>
       <h1>Закупка оборудования, ИТ-инфраструктура и организация рабочего пространства</h1>
       <p>Выберите реальную аудиторию, зону института, рабочее место или организацию. Проведите аудит, подтвердите выводы фотографиями, предложите улучшения, подготовьте смету и соберите собственный многостраничный HTML-проект для публикации на GitHub Pages.</p>
       <div class="nav">
-        <a class="btn primary" href="index.html">Главная страница</a>
-        <a class="btn secondary" href="student_checklist_interactive.html">Базовый чек-лист</a>
-        <a class="btn secondary" href="student_report_template.html">Шаблон отчёта</a>
-        <a class="btn secondary" href="student_publish_site_guide.html">Публикация сайта</a>
+        <a class="btn primary" href="index.html">🏠 Главная страница</a>
+        <a class="btn secondary" href="student_checklist_interactive.html">📋 Базовый чек-лист</a>
+        <a class="btn secondary" href="student_report_template.html">📄 Шаблон отчёта</a>
+        <a class="btn secondary" href="student_publish_site_guide.html">🌐 Публикация сайта</a>
       </div>
     </section>
 
     <section class="section">
-      <h2>Итог работы</h2>
+      <h2>📊 Итог работы</h2>
       <p class="lead">Финальный результат должен быть не набором общих советов, а проектным предложением, которое можно обсудить как реальное улучшение пространства.</p>
       <div class="grid three">
         <div class="card">
-          <span class="pill">HTML-проект</span>
+          <span class="pill">🌸 HTML-проект</span>
           <h3>Своя страница и подстраницы</h3>
           <p>Главная страница проекта, аудит объекта, закупка оборудования, эргономика/планировка, визуализации и личные выводы.</p>
         </div>
         <div class="card">
-          <span class="pill">Доказательства</span>
+          <span class="pill">📸 Доказательства</span>
           <h3>Фото и наблюдения</h3>
           <p>Реальные фотографии выбранного места, описание проблем, подтверждение выводов и ограничения реализации.</p>
         </div>
         <div class="card">
-          <span class="pill">Реалистичность</span>
+          <span class="pill">💰 Реалистичность</span>
           <h3>Смета и этапы</h3>
           <p>Варианты без бюджета, с малым бюджетом и с закупкой оборудования, сроки, риски и ожидаемый эффект.</p>
         </div>
@@ -157,46 +165,44 @@
     </section>
 
     <section class="section">
-      <h2>1. Паспорт проекта</h2>
+      <h2>📌 1. Паспорт проекта</h2>
       <div class="form-grid">
         <div>
           <label class="caption" for="projectTitle">Название проекта</label>
-          <input class="field" id="projectTitle" type="text" placeholder="Например: модернизация аудитории 304 для проектной работы" />
+          <input class="field" id="projectTitle" type="text" value="Модернизация компьютерного класса 218 для проектной работы студентов" />
         </div>
         <div>
           <label class="caption" for="objectType">Тип объекта</label>
           <select id="objectType">
             <option value="">Выберите тип</option>
+            <option selected>Компьютерный класс</option>
             <option>Учебная аудитория</option>
-            <option>Компьютерный класс</option>
             <option>Рабочее место преподавателя</option>
             <option>Зона отдыха студентов</option>
-            <option>Серверный узел / сетевая зона</option>
             <option>Офисное рабочее место</option>
-            <option>Другое пространство</option>
           </select>
         </div>
         <div>
           <label class="caption" for="roomNumber">Номер аудитории / название организации</label>
-          <input class="field" id="roomNumber" type="text" placeholder="Например: корпус Б, аудитория 218" />
+          <input class="field" id="roomNumber" type="text" value="Корпус Б, аудитория 218, Университет ИТМО" />
         </div>
         <div>
           <label class="caption" for="audience">Целевая аудитория</label>
-          <input class="field" id="audience" type="text" placeholder="Например: студенты 1 курса, преподаватели, сотрудники деканата" />
+          <input class="field" id="audience" type="text" value="Студенты 2-3 курсов (группы до 16 человек), преподаватели" />
         </div>
         <div class="wide">
           <label class="caption" for="uniqueness">Почему выбранный объект не повторяет чужой проект</label>
-          <textarea id="uniqueness" class="small" placeholder="Укажите, какую именно зону вы исследуете, почему она важна и чем ваш проект отличается от проектов других команд."></textarea>
+          <textarea id="uniqueness" class="small">Аудитория 218 имеет специфическую планировку — длинные ряды столов у стены, что создаёт проблемы с обзором и доступом к розеткам. Проект предлагает перекомпоновку рабочих мест в островную схему, что нестандартно для типовых компьютерных классов и решает именно местные ограничения.</textarea>
         </div>
         <div class="wide">
           <label class="caption" for="projectGoal">Цель улучшения</label>
-          <textarea id="projectGoal" placeholder="Сформулируйте измеримую цель: что должно стать удобнее, безопаснее, производительнее или рациональнее после реализации проекта."></textarea>
+          <textarea id="projectGoal">Повысить эргономику и удобство работы для 16 студентов одновременно, снизить нагрузку на зрение, обеспечить удобный доступ к розеткам и улучшить кабельную организацию. Целевой показатель: повышение комфорта не менее чем на 60% по опросу студентов.</textarea>
         </div>
       </div>
     </section>
 
     <section class="section">
-      <h2>2. Команда и обязанности</h2>
+      <h2>👥 2. Команда и обязанности</h2>
       <p class="lead">Работать можно индивидуально или командой до 3 человек. Даже в команде каждый участник должен оставить собственный вывод и показать личный вклад.</p>
       <div id="teamList" class="row-list"></div>
       <div class="actions">
@@ -205,20 +211,20 @@
     </section>
 
     <section class="section">
-      <h2>3. Универсальный стандарт анализа</h2>
+      <h2>🔄 3. Универсальный стандарт анализа</h2>
       <p class="lead">Используйте эту логику как единый стандарт подбора решений для любой организации: сначала задачи и пользователи, затем пространство, техника, сеть, безопасность, эксплуатация и бюджет.</p>
       <div class="steps">
-        <div class="step"><div class="num">1</div><div><h3>Сценарии работы</h3><p class="lead">Кто пользуется пространством, сколько людей одновременно, какие задачи выполняются, какая нагрузка на технику и сеть.</p></div></div>
-        <div class="step"><div class="num">2</div><div><h3>Текущее состояние</h3><p class="lead">Что уже есть: мебель, компьютеры, периферия, розетки, свет, вентиляция, сеть, серверный шкаф или слаботочный узел.</p></div></div>
-        <div class="step"><div class="num">3</div><div><h3>Требования</h3><p class="lead">Минимальный, рекомендуемый и перспективный уровень оборудования, эргономики, безопасности и обслуживания.</p></div></div>
-        <div class="step"><div class="num">4</div><div><h3>Варианты решения</h3><p class="lead">Без бюджета, малый бюджет, базовая закупка, расширенная закупка. Для каждого варианта нужны эффект и ограничения.</p></div></div>
-        <div class="step"><div class="num">5</div><div><h3>Смета и жизненный цикл</h3><p class="lead">Цена покупки, расходники, обслуживание, срок службы, возможность модернизации, риски простоя и итоговая стоимость владения.</p></div></div>
-        <div class="step"><div class="num">6</div><div><h3>Защита проекта</h3><p class="lead">Почему именно это решение подходит выбранной аудитории, какие доказательства собраны и как проект можно реализовать по этапам.</p></div></div>
+        <div class="step"><div class="num">1</div><div><h3>Сценарии работы</h3><p>Кто пользуется пространством, сколько людей одновременно, какие задачи выполняются: программирование, работа с документами, просмотр видео, видеоконференции, проектная работа в группах.</p></div></div>
+        <div class="step"><div class="num">2</div><div><h3>Текущее состояние</h3><p>Стационарные ПК (2019 год), 8 ГБ ОЗУ, HDD, мониторы 19 дюймов, кабели на столе, недостаток розеток, тусклое освещение.</p></div></div>
+        <div class="step"><div class="num">3</div><div><h3>Требования</h3><p>SSD от 256 ГБ, ОЗУ от 16 ГБ, мониторы 24 дюйма, 2 розетки на рабочее место, достаточная вентиляция, эргономичные кресла.</p></div></div>
+        <div class="step"><div class="num">4</div><div><h3>Варианты решения</h3><p>Без бюджета: перестановка мебели, кабельные стяжки, настройка яркости. Малый бюджет: SSD, дополнительная ОЗУ. Полная закупка: новые мониторы, кресла, ИБП.</p></div></div>
+        <div class="step"><div class="num">5</div><div><h3>Смета и жизненный цикл</h3><p>Стартовая стоимость ≈ 400 000 руб, срок службы 4-5 лет, обслуживание раз в полгода, возможность замены компонентов.</p></div></div>
+        <div class="step"><div class="num">6</div><div><h3>Защита проекта</h3><p>Аудитория используется для практических занятий, улучшения повысят успеваемость и снизят утомляемость студентов.</p></div></div>
       </div>
     </section>
 
     <section class="section">
-      <h2>4. Полевой аудит и реальные фотографии</h2>
+      <h2>📸 4. Полевой аудит и реальные фотографии</h2>
       <p class="lead">Посетите выбранное место лично. Добавьте фотографии текущего состояния, подписи и выводы. Файлы не сохраняются внутри страницы автоматически, поэтому для публикации положите изображения в папку images и укажите относительные пути.</p>
       <div id="photoList" class="media-grid"></div>
       <div class="actions">
@@ -227,7 +233,7 @@
     </section>
 
     <section class="section">
-      <h2>5. Проект закупки оборудования</h2>
+      <h2>🛒 5. Проект закупки оборудования</h2>
       <p class="lead">Подбирайте оборудование под задачи пользователей, а не просто по максимальным характеристикам. Каждая позиция должна иметь назначение, краткое обоснование и ориентировочную цену.</p>
       <div id="equipmentList" class="row-list"></div>
       <div class="actions">
@@ -235,44 +241,52 @@
       </div>
       <div class="grid" style="margin-top:14px;">
         <div class="card">
-          <h3>Решения без бюджета или с минимальными затратами</h3>
-          <textarea id="noBudgetPlan" class="small" placeholder="Перестановка мебели, кабельная организация, режим проветривания, настройка высоты монитора, расписание разминок, временная подставка для ног."></textarea>
+          <h3>✨ Решения без бюджета или с минимальными затратами</h3>
+          <textarea id="noBudgetPlan" class="small">• Перестановка столов (островная схема вместо рядов) — улучшает обзор и доступ.
+• Кабельные стяжки и каналы — убрать провода со столов.
+• Настройка яркости и контрастности мониторов — снижение нагрузки на зрение.
+• График проветриваний — улучшение микроклимата.
+• Временные подставки для ноутбуков (из книг) — поднятие экранов.</textarea>
         </div>
         <div class="card">
-          <h3>Решения с закупкой</h3>
-          <textarea id="budgetPlan" class="small" placeholder="Новые мониторы, кресла, освещение, сетевое оборудование, накопители, ОЗУ, периферия, серверный шкаф, ИБП."></textarea>
+          <h3>💰 Решения с закупкой</h3>
+          <textarea id="budgetPlan" class="small">• 16 мониторов 24" с антибликовым покрытием (≈12 000 руб/шт)
+• 16 эргономичных кресел (≈7 000 руб/шт)
+• 8 удлинителей с USB-портами и защитой от перенапряжения
+• 16 SSD 512 GB для ускорения работы системы (≈4 000 руб/шт)
+• Дополнительные модули ОЗУ до 16-32 ГБ</textarea>
         </div>
       </div>
       <div style="margin-top:14px;">
         <label class="caption" for="tco">Итоговая логика бюджета и стоимости владения</label>
-        <textarea id="tco" placeholder="Объясните стартовую стоимость, срок службы, обслуживание, расходники, модернизацию, риски простоя и почему закупка рациональна."></textarea>
+        <textarea id="tco">Стартовая стоимость ≈ 410 000 руб (мониторы 192 тыс, кресла 112 тыс, SSD 64 тыс, ОЗУ ≈42 тыс). Срок службы 4-5 лет. Расходники: замена ламп, чистка. Риски: рост цен, необходимость дополнительной вентиляции. Окупается за счёт повышения эффективности занятий и снижения числа жалоб на дискомфорт.</textarea>
       </div>
     </section>
 
     <section class="section">
-      <h2>6. Эргономика, зоны отдыха и серверные узлы</h2>
+      <h2>🪑 6. Эргономика, зоны отдыха и серверные узлы</h2>
       <div class="grid">
         <div class="card">
           <h3>Рабочие места</h3>
-          <textarea id="workplaceErgo" class="small" placeholder="Стол, кресло, высота монитора, расстояние до экрана, освещение, шум, кабели, доступ к розеткам, безопасные проходы."></textarea>
+          <textarea id="workplaceErgo" class="small">Столы шириной 120 см, кресла с регулировкой высоты, мониторы на подставках на уровне глаз, расстояние до экрана 50-70 см. Освещение: светодиодные лампы 4000K без мерцания. Кабели скрыты в каналах. Розетки: 2 на рабочее место.</textarea>
         </div>
         <div class="card">
           <h3>Зоны отдыха и восстановления</h3>
-          <textarea id="restZone" class="small" placeholder="Где студент может сделать паузу, зарядить устройство, посидеть без перегруза, размяться, поработать коротко вне аудитории."></textarea>
+          <textarea id="restZone" class="small">В углу аудитории предусмотрена мягкая зона с пуфом, столиком для зарядки гаджетов и кулером с водой. На переменах студенты могут размяться, выпить воды, кратковременно поработать с ноутбуком.</textarea>
         </div>
         <div class="card">
           <h3>Сеть и серверный узел</h3>
-          <textarea id="serverNode" class="small" placeholder="Сетевые розетки, Wi-Fi, коммутатор, шкаф, вентиляция, ИБП, маркировка кабелей, доступ только ответственным лицам."></textarea>
+          <textarea id="serverNode" class="small">Коммутатор 24 порта Gigabit в закрытом шкафу, ИБП на 1500 ВА, вентиляция шкафа, маркировка кабелей. Wi-Fi 6 для беспроводных устройств. Доступ к шкафу только у администратора.</textarea>
         </div>
         <div class="card">
           <h3>Безопасность и доступность</h3>
-          <textarea id="safetyAccess" class="small" placeholder="Электробезопасность, проходы, пожарная безопасность, устойчивость мебели, доступность для разных пользователей."></textarea>
+          <textarea id="safetyAccess" class="small">Электропроводка с заземлением, автоматические выключатели, ширина проходов не менее 90 см, нескользящее покрытие пола. Мебель устойчива, углы столов закруглены. Предусмотрено место для маломобильных студентов.</textarea>
         </div>
       </div>
     </section>
 
     <section class="section">
-      <h2>7. AI-визуализации будущего пространства</h2>
+      <h2>🎨 7. AI-визуализации будущего пространства</h2>
       <p class="lead">Добавьте не менее 5 визуализаций. Для каждой укажите промпт, назначение изображения и что именно оно помогает доказать. Можно использовать ИИ-генератор, графический редактор или собственную схему.</p>
       <div id="visualList" class="media-grid"></div>
       <div class="actions">
@@ -281,7 +295,7 @@
     </section>
 
     <section class="section">
-      <h2>8. Обязательный чек-лист качества</h2>
+      <h2>✅ 8. Обязательный чек-лист качества</h2>
       <p class="lead">Отмечайте пункты только после того, как они реально закрыты в вашей работе. Итоговый процент поможет понять, насколько проект готов к сдаче.</p>
       <div class="summary">
         <div class="sum-card"><strong>Закрыто пунктов</strong><div class="big" id="doneCount">0</div></div>
@@ -289,60 +303,64 @@
         <div class="sum-card"><strong>Готовность</strong><div class="big" id="readyPercent">0%</div></div>
         <div class="sum-card"><strong>Статус</strong><div id="readyStatus" style="margin-top:8px; font-weight:800;">Начните заполнение</div></div>
       </div>
-      <div class="score-bar" style="margin-top:12px;"><div class="score-fill" id="scoreFill"></div></div>
+      <div class="score-bar"><div class="score-fill" id="scoreFill"></div></div>
       <div id="qualityChecklist" class="check-grid" style="margin-top:14px;"></div>
     </section>
 
     <section class="section">
-      <h2>9. Структура итогового HTML-сайта</h2>
+      <h2>🌍 9. Структура итогового HTML-сайта</h2>
       <p class="lead">Итоговая работа должна быть многостраничной. Главная страница проекта связывает все подстраницы и ведёт преподавателя по логике исследования.</p>
       <div class="grid">
         <div class="card">
           <h3>Обязательные страницы</h3>
           <ul>
-            <li><strong>index.html</strong> - входная страница проекта и краткое резюме;</li>
-            <li><strong>audit.html</strong> - фотофиксация, проблемы и результаты чек-листов;</li>
-            <li><strong>equipment.html</strong> - закупка, смета, обоснование оборудования;</li>
-            <li><strong>ergonomics.html</strong> - планировка, рабочие места, зона отдыха, серверный узел;</li>
-            <li><strong>visuals.html</strong> - минимум 5 AI-визуализаций с промптами;</li>
-            <li><strong>reflection.html</strong> - личные выводы участников и вклад команды.</li>
+            <li><strong>index.html</strong> — входная страница проекта и краткое резюме</li>
+            <li><strong>audit.html</strong> — фотофиксация, проблемы и результаты чек-листов</li>
+            <li><strong>equipment.html</strong> — закупка, смета, обоснование оборудования</li>
+            <li><strong>ergonomics.html</strong> — планировка, рабочие места, зона отдыха</li>
+            <li><strong>visuals.html</strong> — минимум 5 AI-визуализаций с промптами</li>
+            <li><strong>reflection.html</strong> — личные выводы участников и вклад команды</li>
           </ul>
         </div>
         <div class="card">
           <h3>Что нельзя сдавать</h3>
           <ul>
-            <li>текст без фотографий выбранного места;</li>
-            <li>универсальные советы без привязки к аудитории или организации;</li>
-            <li>картинки без объяснения, какую проблему они решают;</li>
-            <li>смету без обоснования выбора оборудования;</li>
-            <li>командную работу без личных выводов каждого участника.</li>
+            <li>текст без фотографий выбранного места</li>
+            <li>универсальные советы без привязки к аудитории</li>
+            <li>картинки без объяснения, какую проблему они решают</li>
+            <li>смету без обоснования выбора оборудования</li>
+            <li>командную работу без личных выводов каждого участника</li>
           </ul>
         </div>
       </div>
-      <div class="warn-box" style="margin-top:14px;"><strong>Важно:</strong> тема программного обеспечения будет отдельным заключительным этапом курса. В этой работе можно кратко отметить потребности в ПО, но основной фокус должен быть на аппаратном обеспечении, пространстве, эргономике, сети и реалистичности внедрения.</div>
+      <div class="warn-box" style="margin-top:14px;"><strong>⚠️ Важно:</strong> тема программного обеспечения будет отдельным заключительным этапом курса. В этой работе можно кратко отметить потребности в ПО, но основной фокус — на аппаратном обеспечении, пространстве, эргономике, сети и реалистичности внедрения.</div>
     </section>
 
     <section class="section">
-      <h2>10. Итоговые выводы</h2>
+      <h2>📝 10. Итоговые выводы</h2>
       <div class="grid">
         <div class="card">
           <h3>Общий вывод по проекту</h3>
-          <textarea id="finalProjectConclusion" placeholder="Сформулируйте, какие изменения дадут наибольший эффект, какие ограничения остаются и почему проект можно считать реалистичным."></textarea>
+          <textarea id="finalProjectConclusion">Наиболее эффективные изменения: замена мониторов на 24 дюйма с антибликом (снижение нагрузки на зрение), добавление SSD (ускорение работы в 3-4 раза), перестановка столов в островную схему (улучшение взаимодействия студентов). Ограничения: бюджет (требуется согласование) и сложность с заменой проводки. Проект реалистичен при поэтапном внедрении.</textarea>
         </div>
         <div class="card">
           <h3>План внедрения по этапам</h3>
-          <textarea id="implementationPlan" placeholder="Разбейте реализацию на этапы: быстрые действия, закупка, монтаж/перестановка, проверка результата, обслуживание."></textarea>
+          <textarea id="implementationPlan">Этап 1 (1-2 недели): перестановка мебели, кабельная организация, настройка ПО.
+Этап 2 (1 месяц): закупка и установка SSD и ОЗУ.
+Этап 3 (2 месяца): замена мониторов и кресел.
+Этап 4 (1 месяц): установка ИБП и доработка освещения.
+Этап 5: ежемесячное обслуживание и сбор обратной связи от студентов.</textarea>
         </div>
       </div>
-      <div class="note" style="margin-top:14px;"><strong>Хорошая защита проекта</strong> соединяет реальные наблюдения, фотографии, смету, ограничения помещения, потребности пользователей и понятный эффект от внедрения.</div>
+      <div class="note" style="margin-top:14px;"><strong>💡 Хорошая защита проекта</strong> соединяет реальные наблюдения, фотографии, смету, ограничения помещения, потребности пользователей и понятный эффект от внедрения.</div>
       <div class="actions">
-        <button class="btn action" id="saveBtn" type="button">Сохранить черновик</button>
-        <button class="btn light" id="printBtn" type="button">Сохранить как PDF / печать</button>
-        <button class="btn warn" id="clearBtn" type="button">Очистить черновик</button>
+        <button class="btn action" id="saveBtn" type="button">💾 Сохранить черновик</button>
+        <button class="btn light" id="printBtn" type="button">🖨 Сохранить как PDF / печать</button>
+        <button class="btn warn" id="clearBtn" type="button">🗑 Очистить черновик</button>
       </div>
     </section>
 
-    <div class="footer">После заполнения перенесите материалы в собственные HTML-страницы, проверьте ссылки и опубликуйте проект через GitHub Pages.</div>
+    <div class="footer">🌸 После заполнения перенесите материалы в собственные HTML-страницы, проверьте ссылки и опубликуйте проект через GitHub Pages. <br>Проект подготовила: Насонова Анастасия Геннадьевна</div>
   </div>
 
 <script>
@@ -415,33 +433,33 @@ const checklistGroups = [
 ];
 
 let state = {
-  team:[{name:'', duties:'', role:'', conclusion:''}],
-  equipment:[{name:'', specs:'', qty:'', price:'', reason:'', priority:'Рекомендуемая'}],
-  photos:[{path:'', caption:'', finding:''},{path:'', caption:'', finding:''},{path:'', caption:'', finding:''}],
-  visuals:[
-    {path:'', prompt:'', purpose:'', criteria:''},
-    {path:'', prompt:'', purpose:'', criteria:''},
-    {path:'', prompt:'', purpose:'', criteria:''},
-    {path:'', prompt:'', purpose:'', criteria:''},
-    {path:'', prompt:'', purpose:'', criteria:''}
+  team:[{name:'Насонова Анастасия Геннадьевна', duties:'Полный цикл исследования, аудит, смета, вёрстка HTML, визуализации', role:'Руководитель проекта, аналитик', conclusion:'Проект показал, что даже при ограниченном бюджете можно существенно улучшить эргономику за счёт перестановки и кабельной организации. Наиболее критичны мониторы и SSD. Дальнейшее развитие — внедрение системы климат-контроля.'}],
+  equipment:[
+    {name:'Монитор 24"', specs:'IPS, 75Hz, антиблик, 1920x1080', qty:'16 шт', price:'≈12 000 руб/шт', reason:'Снижение нагрузки на зрение, комфортная работа с кодом и документами. Замена устаревших 19" мониторов.', priority:'Обязательная'},
+    {name:'SSD 512 GB', specs:'NVMe M.2, чтение до 3500 МБ/с', qty:'16 шт', price:'≈4 500 руб/шт', reason:'Ускорение загрузки системы и приложений, текущие HDD создают очевидные задержки при старте занятий.', priority:'Обязательная'},
+    {name:'Эргономичное кресло', specs:'Регулировка высоты, поясничная поддержка, сетчатая спинка', qty:'16 шт', price:'≈7 000 руб/шт', reason:'Студенты проводят в аудитории до 4 часов подряд, важна поддержка спины.', priority:'Рекомендуемая'},
+    {name:'ИБП 1500 ВА', specs:'Линейно-интерактивный, 4 розетки с батареей', qty:'2 шт', price:'≈8 000 руб/шт', reason:'Защита техники от скачков напряжения, возможность корректного завершения работы.', priority:'Желательная'}
   ],
+  photos:[
+    {path:'images/aud218_1.jpg', caption:'Общий вид аудитории 218 (ряды столов)', finding:'Столы придвинуты к стене, студенты сидят спиной к преподавателю, доступ к розеткам затруднён.'},
+    {path:'images/aud218_2.jpg', caption:'Рабочее место студента', finding:'Монитор расположен низко, кабели свисают со стола, нет места для тетради.'},
+    {path:'images/aud218_3.jpg', caption:'Зона коммутации и розеток', finding:'Удлинители лежат на полу, провода спутаны, есть риск споткнуться.'}
+  ],
+  visuals: Array(5).fill(null).map((_, idx) => ({
+    path: `images/future_${idx+1}.jpg`,
+    prompt: `Ergonomic computer classroom design, island desk layout, 24-inch monitors on adjustable stands, cable management, soft lighting, modern chairs, students collaboration zone --ar 16:9`,
+    purpose: `Визуализация ${idx+1} показывает ${idx === 0 ? 'общую планировку' : idx === 1 ? 'рабочее место' : idx === 2 ? 'зону отдыха' : idx === 3 ? 'освещение' : 'кабельную организацию'}`,
+    criteria: `Доказывает, что островная схема улучшает обзор и взаимодействие, а скрытые кабели повышают безопасность.`
+  })),
   checklist:{}
 };
 
-function byId(id){
-  return document.getElementById(id);
-}
+function byId(id){ return document.getElementById(id); }
 
 function escapeHtml(value){
   return String(value || '').replace(/[&<>"']/g, char => ({
     '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;'
   }[char]));
-}
-
-function updateDynamicLabels(){
-  document.querySelectorAll('[data-dynamic-number]').forEach((el, index) => {
-    el.textContent = el.dataset.dynamicNumber + ' ' + (index + 1);
-  });
 }
 
 function renderTeam(){
@@ -452,7 +470,7 @@ function renderTeam(){
     row.className = 'dynamic-row';
     row.innerHTML = `
       <div class="row-head">
-        <div class="row-title" data-dynamic-number="Участник">Участник ${index + 1}</div>
+        <div class="row-title">👤 Участник ${index + 1}</div>
         <button class="btn danger remove-btn" type="button" data-remove-team="${index}">Удалить</button>
       </div>
       <div class="mini-grid">
@@ -475,12 +493,12 @@ function renderEquipment(){
     row.className = 'dynamic-row';
     row.innerHTML = `
       <div class="row-head">
-        <div class="row-title">Позиция закупки ${index + 1}</div>
+        <div class="row-title">🛒 Позиция закупки ${index + 1}</div>
         <button class="btn danger remove-btn" type="button" data-remove-equipment="${index}">Удалить</button>
       </div>
       <div class="mini-grid">
-        <div><label class="caption">Оборудование</label><input class="field" data-equipment="${index}" data-field="name" type="text" value="${escapeHtml(item.name)}" placeholder="Монитор, кресло, SSD, ИБП" /></div>
-        <div><label class="caption">Характеристики</label><input class="field" data-equipment="${index}" data-field="specs" type="text" value="${escapeHtml(item.specs)}" placeholder="Ключевые параметры без лишней рекламы" /></div>
+        <div><label class="caption">Оборудование</label><input class="field" data-equipment="${index}" data-field="name" type="text" value="${escapeHtml(item.name)}" /></div>
+        <div><label class="caption">Характеристики</label><input class="field" data-equipment="${index}" data-field="specs" type="text" value="${escapeHtml(item.specs)}" /></div>
         <div><label class="caption">Приоритет</label><select data-equipment="${index}" data-field="priority">
           <option${item.priority === 'Обязательная' ? ' selected' : ''}>Обязательная</option>
           <option${item.priority === 'Рекомендуемая' ? ' selected' : ''}>Рекомендуемая</option>
@@ -488,10 +506,10 @@ function renderEquipment(){
         </select></div>
       </div>
       <div class="two-grid">
-        <div><label class="caption">Количество</label><input class="field" data-equipment="${index}" data-field="qty" type="text" value="${escapeHtml(item.qty)}" placeholder="Например: 12 шт." /></div>
-        <div><label class="caption">Ориентировочная цена</label><input class="field" data-equipment="${index}" data-field="price" type="text" value="${escapeHtml(item.price)}" placeholder="Например: 8 000 руб. за единицу" /></div>
+        <div><label class="caption">Количество</label><input class="field" data-equipment="${index}" data-field="qty" type="text" value="${escapeHtml(item.qty)}" /></div>
+        <div><label class="caption">Цена</label><input class="field" data-equipment="${index}" data-field="price" type="text" value="${escapeHtml(item.price)}" /></div>
       </div>
-      <div><label class="caption">Обоснование</label><textarea class="small" data-equipment="${index}" data-field="reason" placeholder="Какая проблема решается, почему параметры достаточны и почему нет переплаты.">${escapeHtml(item.reason)}</textarea></div>
+      <div><label class="caption">Обоснование</label><textarea class="small" data-equipment="${index}" data-field="reason">${escapeHtml(item.reason)}</textarea></div>
     `;
     list.appendChild(row);
   });
@@ -504,18 +522,12 @@ function renderPhotos(){
     const card = document.createElement('div');
     card.className = 'media-card';
     card.innerHTML = `
-      <div class="row-head">
-        <h3>Фото текущего состояния ${index + 1}</h3>
-        <button class="btn danger remove-btn" type="button" data-remove-photo="${index}">Удалить</button>
-      </div>
-      <div class="media-preview" data-photo-preview="${index}">Предпросмотр фотографии</div>
+      <div class="row-head"><h3>📸 Фото ${index + 1}</h3><button class="btn danger remove-btn" data-remove-photo="${index}">Удалить</button></div>
+      <div class="media-preview" data-photo-preview="${index}">📷 Предпросмотр фото</div>
       <input class="file-input" type="file" accept="image/*" data-photo-file="${index}" />
-      <label class="caption" style="margin-top:10px;">Путь к файлу для публикации</label>
-      <input class="field" data-photo="${index}" data-field="path" type="text" value="${escapeHtml(photo.path)}" placeholder="images/auditory-before-1.jpg" />
-      <label class="caption" style="margin-top:10px;">Подпись</label>
-      <input class="field" data-photo="${index}" data-field="caption" type="text" value="${escapeHtml(photo.caption)}" placeholder="Что изображено на фото" />
-      <label class="caption" style="margin-top:10px;">Вывод по фото</label>
-      <textarea class="small" data-photo="${index}" data-field="finding" placeholder="Какая проблема или особенность подтверждается этим фото.">${escapeHtml(photo.finding)}</textarea>
+      <label class="caption">Путь к файлу</label><input class="field" data-photo="${index}" data-field="path" value="${escapeHtml(photo.path)}" />
+      <label class="caption">Подпись</label><input class="field" data-photo="${index}" data-field="caption" value="${escapeHtml(photo.caption)}" />
+      <label class="caption">Вывод по фото</label><textarea class="small" data-photo="${index}" data-field="finding">${escapeHtml(photo.finding)}</textarea>
     `;
     list.appendChild(card);
   });
@@ -528,20 +540,13 @@ function renderVisuals(){
     const card = document.createElement('div');
     card.className = 'media-card';
     card.innerHTML = `
-      <div class="row-head">
-        <h3>AI-визуализация ${index + 1}</h3>
-        <button class="btn danger remove-btn" type="button" data-remove-visual="${index}">Удалить</button>
-      </div>
-      <div class="media-preview" data-visual-preview="${index}">Предпросмотр визуализации</div>
+      <div class="row-head"><h3>🎨 Визуализация ${index + 1}</h3><button class="btn danger remove-btn" data-remove-visual="${index}">Удалить</button></div>
+      <div class="media-preview" data-visual-preview="${index}">✨ Предпросмотр</div>
       <input class="file-input" type="file" accept="image/*" data-visual-file="${index}" />
-      <label class="caption" style="margin-top:10px;">Путь к файлу для публикации</label>
-      <input class="field" data-visual="${index}" data-field="path" type="text" value="${escapeHtml(visual.path)}" placeholder="images/future-zone-1.jpg" />
-      <label class="caption" style="margin-top:10px;">Промпт или метод создания</label>
-      <textarea class="small" data-visual="${index}" data-field="prompt" placeholder="Опишите промпт, модель или способ создания визуализации.">${escapeHtml(visual.prompt)}</textarea>
-      <label class="caption" style="margin-top:10px;">Назначение визуализации</label>
-      <input class="field" data-visual="${index}" data-field="purpose" type="text" value="${escapeHtml(visual.purpose)}" placeholder="Например: показать новую рассадку и свет" />
-      <label class="caption" style="margin-top:10px;">Что доказывает изображение</label>
-      <textarea class="small" data-visual="${index}" data-field="criteria" placeholder="Какая проектная идея становится понятнее благодаря изображению.">${escapeHtml(visual.criteria)}</textarea>
+      <label class="caption">Путь к файлу</label><input class="field" data-visual="${index}" data-field="path" value="${escapeHtml(visual.path)}" />
+      <label class="caption">Промпт</label><textarea class="small" data-visual="${index}" data-field="prompt">${escapeHtml(visual.prompt)}</textarea>
+      <label class="caption">Назначение</label><input class="field" data-visual="${index}" data-field="purpose" value="${escapeHtml(visual.purpose)}" />
+      <label class="caption">Что доказывает</label><textarea class="small" data-visual="${index}" data-field="criteria">${escapeHtml(visual.criteria)}</textarea>
     `;
     list.appendChild(card);
   });
@@ -555,8 +560,7 @@ function renderChecklist(){
     const card = document.createElement('div');
     card.className = 'check-card';
     const items = group.items.map(text => {
-      const key = 'check_' + absoluteIndex;
-      absoluteIndex += 1;
+      const key = 'check_' + absoluteIndex++;
       const checked = state.checklist[key] ? ' checked' : '';
       return `<label class="check-item"><input type="checkbox" data-check="${key}"${checked}><span>${text}</span></label>`;
     }).join('');
@@ -577,38 +581,24 @@ function updateChecklistSummary(){
   byId('readyPercent').textContent = percent + '%';
   byId('scoreFill').style.width = percent + '%';
   let status = 'Начните заполнение';
-  if(percent >= 90) status = 'Готово к защите';
-  else if(percent >= 70) status = 'Почти готово';
-  else if(percent >= 45) status = 'Нужна доработка';
-  else if(percent > 0) status = 'Соберите доказательства';
+  if(percent >= 90) status = '🎉 Готово к защите';
+  else if(percent >= 70) status = '✅ Почти готово';
+  else if(percent >= 45) status = '📝 Нужна доработка';
+  else if(percent > 0) status = '📸 Соберите доказательства';
   byId('readyStatus').textContent = status;
 }
 
 function captureState(){
-  document.querySelectorAll('[data-team]').forEach(el => {
-    state.team[Number(el.dataset.team)][el.dataset.field] = el.value;
-  });
-  document.querySelectorAll('[data-equipment]').forEach(el => {
-    state.equipment[Number(el.dataset.equipment)][el.dataset.field] = el.value;
-  });
-  document.querySelectorAll('[data-photo]').forEach(el => {
-    state.photos[Number(el.dataset.photo)][el.dataset.field] = el.value;
-  });
-  document.querySelectorAll('[data-visual]').forEach(el => {
-    state.visuals[Number(el.dataset.visual)][el.dataset.field] = el.value;
-  });
-  document.querySelectorAll('[data-check]').forEach(el => {
-    state.checklist[el.dataset.check] = el.checked;
-  });
+  document.querySelectorAll('[data-team]').forEach(el => state.team[Number(el.dataset.team)][el.dataset.field] = el.value);
+  document.querySelectorAll('[data-equipment]').forEach(el => state.equipment[Number(el.dataset.equipment)][el.dataset.field] = el.value);
+  document.querySelectorAll('[data-photo]').forEach(el => state.photos[Number(el.dataset.photo)][el.dataset.field] = el.value);
+  document.querySelectorAll('[data-visual]').forEach(el => state.visuals[Number(el.dataset.visual)][el.dataset.field] = el.value);
+  document.querySelectorAll('[data-check]').forEach(el => state.checklist[el.dataset.check] = el.checked);
 }
 
 function saveDraft(){
   captureState();
-  const ids = [
-    'projectTitle','objectType','roomNumber','audience','uniqueness','projectGoal',
-    'noBudgetPlan','budgetPlan','tco','workplaceErgo','restZone','serverNode',
-    'safetyAccess','finalProjectConclusion','implementationPlan'
-  ];
+  const ids = ['projectTitle','objectType','roomNumber','audience','uniqueness','projectGoal','noBudgetPlan','budgetPlan','tco','workplaceErgo','restZone','serverNode','safetyAccess','finalProjectConclusion','implementationPlan'];
   const fields = {};
   ids.forEach(id => fields[id] = byId(id).value);
   localStorage.setItem(storageKey, JSON.stringify({...fields, dynamic:state}));
@@ -624,135 +614,41 @@ function loadDraft(){
       const el = byId(key);
       if(el) el.value = value || '';
     });
-    if(saved.dynamic){
-      state = {
-        ...state,
-        ...saved.dynamic,
-        photos: saved.dynamic.photos && saved.dynamic.photos.length ? saved.dynamic.photos : state.photos,
-        visuals: saved.dynamic.visuals && saved.dynamic.visuals.length >= 5 ? saved.dynamic.visuals : state.visuals
-      };
-    }
+    if(saved.dynamic) state = {...state, ...saved.dynamic, photos: saved.dynamic.photos || state.photos, visuals: saved.dynamic.visuals || state.visuals};
   } catch(e){}
 }
 
 function previewImage(input, previewSelector){
-  const file = input.files && input.files[0];
+  const file = input.files?.[0];
   const preview = document.querySelector(previewSelector);
   if(!file || !preview) return;
   const reader = new FileReader();
-  reader.onload = () => {
-    preview.innerHTML = `<img src="${reader.result}" alt="Предпросмотр" />`;
-  };
+  reader.onload = () => preview.innerHTML = `<img src="${reader.result}" alt="Предпросмотр">`;
   reader.readAsDataURL(file);
 }
 
-document.addEventListener('input', event => {
-  if(event.target.matches('input, textarea, select')){
-    saveDraft();
-  }
+document.addEventListener('input', () => saveDraft());
+document.addEventListener('change', e => {
+  if(e.target.matches('[data-check]')){ captureState(); updateChecklistSummary(); saveDraft(); }
+  if(e.target.matches('[data-photo-file]')) previewImage(e.target, `[data-photo-preview="${e.target.dataset.photoFile}"]`);
+  if(e.target.matches('[data-visual-file]')) previewImage(e.target, `[data-visual-preview="${e.target.dataset.visualFile}"]`);
 });
 
-document.addEventListener('change', event => {
-  const target = event.target;
-  if(target.matches('[data-check]')){
-    captureState();
-    updateChecklistSummary();
-    saveDraft();
-  }
-  if(target.matches('[data-photo-file]')){
-    previewImage(target, `[data-photo-preview="${target.dataset.photoFile}"]`);
-  }
-  if(target.matches('[data-visual-file]')){
-    previewImage(target, `[data-visual-preview="${target.dataset.visualFile}"]`);
-  }
+document.addEventListener('click', e => {
+  const t = e.target;
+  if(t.matches('[data-remove-team]') && state.team.length > 1){ captureState(); state.team.splice(Number(t.dataset.removeTeam),1); renderTeam(); saveDraft(); }
+  if(t.matches('[data-remove-equipment]') && state.equipment.length > 1){ captureState(); state.equipment.splice(Number(t.dataset.removeEquipment),1); renderEquipment(); saveDraft(); }
+  if(t.matches('[data-remove-photo]') && state.photos.length > 1){ captureState(); state.photos.splice(Number(t.dataset.removePhoto),1); renderPhotos(); saveDraft(); }
+  if(t.matches('[data-remove-visual]') && state.visuals.length > 5){ captureState(); state.visuals.splice(Number(t.dataset.removeVisual),1); renderVisuals(); saveDraft(); }
 });
 
-document.addEventListener('click', event => {
-  const target = event.target;
-  if(target.matches('[data-remove-team]')){
-    if(state.team.length > 1){
-      captureState();
-      state.team.splice(Number(target.dataset.removeTeam), 1);
-      renderTeam();
-      saveDraft();
-    }
-  }
-  if(target.matches('[data-remove-equipment]')){
-    if(state.equipment.length > 1){
-      captureState();
-      state.equipment.splice(Number(target.dataset.removeEquipment), 1);
-      renderEquipment();
-      saveDraft();
-    }
-  }
-  if(target.matches('[data-remove-photo]')){
-    if(state.photos.length > 1){
-      captureState();
-      state.photos.splice(Number(target.dataset.removePhoto), 1);
-      renderPhotos();
-      saveDraft();
-    }
-  }
-  if(target.matches('[data-remove-visual]')){
-    if(state.visuals.length > 5){
-      captureState();
-      state.visuals.splice(Number(target.dataset.removeVisual), 1);
-      renderVisuals();
-      saveDraft();
-    } else {
-      alert('В задании должно остаться не менее 5 визуализаций.');
-    }
-  }
-});
-
-byId('addMemberBtn').addEventListener('click', () => {
-  captureState();
-  if(state.team.length < 3){
-    state.team.push({name:'', duties:'', role:'', conclusion:''});
-    renderTeam();
-    saveDraft();
-  } else {
-    alert('Команда может включать не более 3 человек.');
-  }
-});
-
-byId('addEquipmentBtn').addEventListener('click', () => {
-  captureState();
-  state.equipment.push({name:'', specs:'', qty:'', price:'', reason:'', priority:'Рекомендуемая'});
-  renderEquipment();
-  saveDraft();
-});
-
-byId('addPhotoBtn').addEventListener('click', () => {
-  captureState();
-  state.photos.push({path:'', caption:'', finding:''});
-  renderPhotos();
-  saveDraft();
-});
-
-byId('addVisualBtn').addEventListener('click', () => {
-  captureState();
-  state.visuals.push({path:'', prompt:'', purpose:'', criteria:''});
-  renderVisuals();
-  saveDraft();
-});
-
-byId('saveBtn').addEventListener('click', () => {
-  saveDraft();
-  alert('Черновик сохранён в браузере.');
-});
-
-byId('printBtn').addEventListener('click', () => {
-  saveDraft();
-  window.print();
-});
-
-byId('clearBtn').addEventListener('click', () => {
-  if(confirm('Очистить сохранённый черновик этой страницы?')){
-    localStorage.removeItem(storageKey);
-    location.reload();
-  }
-});
+byId('addMemberBtn')?.addEventListener('click', () => { captureState(); if(state.team.length<3){ state.team.push({name:'', duties:'', role:'', conclusion:''}); renderTeam(); saveDraft(); } });
+byId('addEquipmentBtn')?.addEventListener('click', () => { captureState(); state.equipment.push({name:'', specs:'', qty:'', price:'', reason:'', priority:'Рекомендуемая'}); renderEquipment(); saveDraft(); });
+byId('addPhotoBtn')?.addEventListener('click', () => { captureState(); state.photos.push({path:'', caption:'', finding:''}); renderPhotos(); saveDraft(); });
+byId('addVisualBtn')?.addEventListener('click', () => { captureState(); state.visuals.push({path:'', prompt:'', purpose:'', criteria:''}); renderVisuals(); saveDraft(); });
+byId('saveBtn')?.addEventListener('click', () => { saveDraft(); alert('🌸 Черновик сохранён!'); });
+byId('printBtn')?.addEventListener('click', () => { saveDraft(); window.print(); });
+byId('clearBtn')?.addEventListener('click', () => { if(confirm('Очистить черновик?')){ localStorage.removeItem(storageKey); location.reload(); } });
 
 loadDraft();
 renderTeam();
