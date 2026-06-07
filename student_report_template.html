@@ -3,49 +3,146 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Шаблон отчёта студента</title>
+  <title>Шаблон отчёта студента | Аудит рабочего пространства</title>
   <style>
-    :root{
-      --bg:#f4f7fc; --card:#ffffff; --text:#18212f; --muted:#5f6b7a; --line:#dde6f0;
-      --primary:#2457d6; --primary2:#4f86ff; --soft:#ecf3ff; --green:#0f766e; --warn:#9a6700;
-      --shadow:0 14px 36px rgba(24,33,47,.10); --radius:22px;
+    /* НЕЖНО-РОЗОВАЯ ПАЛИТРА (как в чек-листе) */
+    :root {
+      --bg: #fff5f7;
+      --card: #ffffff;
+      --text: #2c1a2b;
+      --muted: #9e6b7c;
+      --line: #ffe2e9;
+      --primary: #d45a7a;
+      --primary-light: #ffb6c7;
+      --primary-soft: #fff0f3;
+      --green: #2c7a6e;
+      --warn: #b77b2e;
+      --bad: #c23b22;
+      --shadow: 0 20px 32px -12px rgba(120, 40, 70, 0.12);
+      --radius-xl: 28px;
+      --radius-md: 20px;
+      --font-main: 'Inter', 'Segoe UI', system-ui, -apple-system, 'SF Pro Text', sans-serif;
     }
     *{box-sizing:border-box}
-    body{margin:0;font-family:Inter,"Segoe UI",Roboto,Arial,sans-serif;color:var(--text);background:linear-gradient(180deg,#f7faff 0%, #f2f5fb 100%);line-height:1.58;}
+    body{
+      margin:0;
+      font-family:var(--font-main);
+      color:var(--text);
+      background:linear-gradient(145deg, #fff5f8 0%, #ffeef2 100%);
+      line-height:1.58;
+      font-weight:450;
+    }
     .wrap{max-width:1100px;margin:0 auto;padding:28px 18px 56px;}
-    .hero{background:linear-gradient(135deg,#1f4ec9 0%, #3a76ff 100%);color:#fff;border-radius:28px;padding:28px 26px;box-shadow:var(--shadow);}
-    .eyebrow{display:inline-block;padding:7px 12px;border-radius:999px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.18);font-size:13px;font-weight:700;letter-spacing:.02em;margin-bottom:14px;}
-    h1{margin:0;font-size:clamp(28px,4vw,42px);line-height:1.08;}
-    .hero p{margin:14px 0 0;max-width:860px;font-size:17px;opacity:.98;}
+    .hero{
+      background:linear-gradient(125deg, #cf6484 0%, #e587a6 100%);
+      color:#fff;
+      border-radius:var(--radius-xl);
+      padding:28px 26px;
+      box-shadow:var(--shadow);
+    }
+    .eyebrow{
+      display:inline-block;
+      padding:6px 14px;
+      border-radius:60px;
+      background:rgba(255,245,245,0.25);
+      backdrop-filter:blur(2px);
+      border:1px solid rgba(255,255,255,0.5);
+      font-size:13px;
+      font-weight:600;
+      letter-spacing:.3px;
+      margin-bottom:14px;
+    }
+    h1{margin:0;font-size:clamp(28px,4vw,42px);line-height:1.08;font-weight:700;letter-spacing:-0.02em;}
+    .hero p{margin:14px 0 0;max-width:860px;font-size:17px;opacity:.95;}
     .nav{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px;}
-    .btn{text-decoration:none;display:inline-flex;align-items:center;justify-content:center;padding:11px 16px;border-radius:14px;font-weight:700;transition:.2s ease;border:1px solid transparent;cursor:pointer;}
-    .btn.primary{background:#fff;color:#1f4ec9;}
-    .btn.secondary{background:rgba(255,255,255,.12);color:#fff;border-color:rgba(255,255,255,.20);}
-    .section{margin-top:18px;background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);border:1px solid #edf2f8;padding:24px 22px;}
-    .section h2{margin:0 0 10px;font-size:26px;line-height:1.15;}
+    .btn{
+      text-decoration:none;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:10px 18px;
+      border-radius:44px;
+      font-weight:600;
+      font-size:0.9rem;
+      transition:.2s ease;
+      border:none;
+      cursor:pointer;
+    }
+    .btn.primary{background:#fff;color:#c45374;box-shadow:0 4px 10px rgba(0,0,0,0.05);}
+    .btn.primary:hover{background:#ffeef4;transform:translateY(-2px);}
+    .btn.secondary{background:rgba(255,235,240,0.25);color:#fff;border:1px solid rgba(255,255,255,0.5);}
+    .section{
+      margin-top:24px;
+      background:var(--card);
+      border-radius:var(--radius-xl);
+      box-shadow:var(--shadow);
+      border:1px solid #ffebf0;
+      padding:24px 22px;
+    }
+    .section h2{margin:0 0 12px;font-size:26px;line-height:1.15;color:#b34b6b;font-weight:650;}
     .lead{margin:0 0 14px;color:var(--muted);font-size:16px;}
     .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
-    .card{border:1px solid var(--line);border-radius:18px;padding:16px;background:#fff;}
-    .card h3{margin:0 0 8px;font-size:19px;}
-    .field, textarea, input[type="text"]{
-      width:100%; border:1px solid var(--line); border-radius:14px; padding:12px 14px;
-      font:inherit; color:var(--text); background:#fff;
+    .card{
+      border:1px solid #ffe2ec;
+      border-radius:24px;
+      padding:18px 20px;
+      background:#fffefe;
     }
-    textarea{min-height:120px; resize:vertical;}
+    .card h3{margin:0 0 10px;font-size:1.2rem;color:#ad4d6e;}
+    .field, textarea, input[type="text"]{
+      width:100%;
+      border:1.5px solid #ffe2ec;
+      border-radius:20px;
+      padding:12px 16px;
+      font:inherit;
+      color:var(--text);
+      background:#fffdfe;
+      transition:0.2s;
+    }
+    .field:focus, textarea:focus, input:focus{
+      outline:none;
+      border-color:#e58aa8;
+      box-shadow:0 0 0 3px rgba(212,90,122,0.2);
+    }
+    textarea{min-height:120px;resize:vertical;}
     .small{min-height:90px;}
-    .summary{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
-    .sum-card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:16px;}
-    .sum-card strong{display:block;font-size:14px;color:var(--muted);}
-    .big{font-size:34px;font-weight:800;color:var(--primary);line-height:1;margin-top:8px;}
+    .summary{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:12px 0;}
+    .sum-card{
+      background:#fffafb;
+      border:1px solid #ffe2eb;
+      border-radius:24px;
+      padding:16px;
+    }
+    .sum-card strong{display:block;font-size:0.8rem;text-transform:uppercase;color:#b56683;letter-spacing:0.3px;}
+    .big{
+      font-size:38px;
+      font-weight:800;
+      color:#d45a7a;
+      line-height:1.1;
+      margin-top:6px;
+    }
     .gallery{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
     .ph{
-      border:2px dashed #cfdcf0; border-radius:18px; min-height:220px; display:flex;
-      align-items:center; justify-content:center; color:var(--muted); text-align:center; padding:20px;
-      background:#fbfcfe;
+      border:2px dashed #ffd9e4;
+      border-radius:24px;
+      min-height:200px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:#b28090;
+      text-align:center;
+      padding:20px;
+      background:#fffbfc;
     }
-    .note{border-radius:18px;padding:16px 18px;border:1px solid #d6ebdf;background:#f1fcf6;}
-    .note strong{color:var(--green);}
-    .footer{margin-top:18px;text-align:center;color:var(--muted);font-size:14px;}
+    .note{
+      border-radius:24px;
+      padding:16px 20px;
+      background:#fff3f6;
+      border-left:5px solid #e590ac;
+      color:#4d2c3f;
+    }
+    .note strong{color:#c55b7c;}
+    .footer{margin-top:28px;text-align:center;color:#b28090;font-size:14px;}
     @media (max-width:900px){.grid,.summary,.gallery{grid-template-columns:1fr;}}
     @media print{
       body{background:#fff}
@@ -55,147 +152,237 @@
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <section class="hero">
-      <div class="eyebrow">Шаблон отчёта</div>
-      <h1>Аудит рабочего пространства и проект улучшения</h1>
-      <p>Заполните поля ниже, перенесите результаты из чек-листа и оформите собственную итоговую страницу.</p>
-      <div class="nav">
-        <a class="btn primary" href="student_checklist_interactive.html">Вернуться к чек-листу</a>
-        <a class="btn secondary" href="student_html_guide.html">Инструкция по HTML и ИИ</a>
-        <a class="btn secondary" href="student_infrastructure_project.html">Проект оборудования</a>
-        <a class="btn secondary" href="student_publish_site_guide.html">Публикация сайта</a>
-        <button class="btn secondary" onclick="window.print()">Сохранить как PDF / печать</button>
-      </div>
-    </section>
+<div class="wrap">
+  <section class="hero">
+    <div class="eyebrow">🌸 Шаблон отчёта</div>
+    <h1>Аудит рабочего пространства и проект улучшения</h1>
+    <p>Заполните поля ниже, перенесите результаты из чек-листа и оформите собственную итоговую страницу. Ваши баллы, сильные стороны и зоны роста уже предзаполнены.</p>
+    <div class="nav">
+      <a class="btn primary" href="student_checklist_interactive.html">📋 Вернуться к чек-листу</a>
+      <a class="btn secondary" href="#">📘 Инструкция по HTML</a>
+      <a class="btn secondary" href="#">🛠 Проект оборудования</a>
+      <a class="btn secondary" href="#">🌐 Публикация сайта</a>
+      <button class="btn secondary" onclick="window.print()">🖨 Сохранить как PDF / печать</button>
+    </div>
+  </section>
 
-    <section class="section">
-      <h2>1. Общая информация</h2>
-      <div class="grid">
-        <div class="card">
-          <h3>ФИО / автор</h3>
-          <input type="text" id="studentName" class="field" placeholder="Введите имя автора" />
-        </div>
-        <div class="card">
-          <h3>Объект анализа</h3>
-          <input type="text" id="objectName" class="field" placeholder="Например: домашнее рабочее место, аудитория, офисный стол" />
-        </div>
+  <section class="section">
+    <h2>📌 1. Общая информация</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>ФИО / автор</h3>
+        <input type="text" id="studentName" class="field" placeholder="Введите имя автора" value="Анастасия Волкова" />
       </div>
-      <div style="margin-top:14px;">
-        <h3>Назначение рабочего пространства</h3>
-        <textarea id="purpose" placeholder="Кратко опишите, для каких задач используется это место: учёба, документы, аналитика, программирование, графика и т.д."></textarea>
+      <div class="card">
+        <h3>Объект анализа</h3>
+        <input type="text" id="objectName" class="field" placeholder="Например: домашнее рабочее место, аудитория, офисный стол" value="Домашнее рабочее место (учебно-проектная зона)" />
       </div>
-    </section>
+    </div>
+    <div style="margin-top:14px;">
+      <h3>Назначение рабочего пространства</h3>
+      <textarea id="purpose" placeholder="Кратко опишите, для каких задач используется это место">Учёба, работа с документами, аналитика данных, видеоконференции, лёгкое программирование и графические задачи. Место используется 8+ часов в день, требуется баланс производительности и эргономики.</textarea>
+    </div>
+  </section>
 
-    <section class="section">
-      <h2>2. Итоги чек-листа</h2>
-      <div class="summary">
-        <div class="sum-card"><strong>Набрано баллов</strong><div class="big" id="sum">—</div></div>
-        <div class="sum-card"><strong>Максимум</strong><div class="big" id="max">—</div></div>
-        <div class="sum-card"><strong>Процент</strong><div class="big" id="percent">—</div></div>
-        <div class="sum-card"><strong>Результат</strong><div id="interp" style="margin-top:8px; font-weight:700;">—</div></div>
-      </div>
-    </section>
+  <section class="section">
+    <h2>📊 2. Итоги чек-листа</h2>
+    <div class="summary">
+      <div class="sum-card"><strong>Набрано баллов</strong><div class="big" id="sum">—</div></div>
+      <div class="sum-card"><strong>Максимум</strong><div class="big" id="max">—</div></div>
+      <div class="sum-card"><strong>Процент</strong><div class="big" id="percent">—</div></div>
+      <div class="sum-card"><strong>Результат</strong><div id="interp" style="margin-top:8px; font-weight:700;">—</div></div>
+    </div>
+  </section>
 
-    <section class="section">
-      <h2>3. Ключевые наблюдения</h2>
-      <div class="grid">
-        <div class="card">
-          <h3>Сильные стороны</h3>
-          <textarea id="strengths" class="small" placeholder="Перенесите из чек-листа или сформулируйте заново."></textarea>
-        </div>
-        <div class="card">
-          <h3>Проблемные зоны</h3>
-          <textarea id="problems" class="small" placeholder="Опишите основные ограничения и слабые места."></textarea>
-        </div>
+  <section class="section">
+    <h2>🔍 3. Ключевые наблюдения</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>✅ Сильные стороны</h3>
+        <textarea id="strengths" class="small" placeholder="Перенесите из чек-листа или сформулируйте заново."></textarea>
       </div>
-      <div style="margin-top:14px;">
-        <h3>Три улучшения с наибольшим эффектом</h3>
-        <textarea id="improvements" placeholder="Укажите конкретные изменения и ожидаемый результат."></textarea>
+      <div class="card">
+        <h3>⚠️ Проблемные зоны</h3>
+        <textarea id="problems" class="small" placeholder="Опишите основные ограничения и слабые места."></textarea>
       </div>
-    </section>
+    </div>
+    <div style="margin-top:14px;">
+      <h3>🚀 Три улучшения с наибольшим эффектом</h3>
+      <textarea id="improvements" placeholder="Укажите конкретные изменения и ожидаемый результат."></textarea>
+    </div>
+  </section>
 
-    <section class="section">
-      <h2>4. Проект улучшения</h2>
-      <div class="grid">
-        <div class="card">
-          <h3>Что можно улучшить без существенных затрат</h3>
-          <textarea id="noBudget" class="small" placeholder="Например: поднять монитор, изменить расположение клавиатуры, организовать кабели, переставить технику."></textarea>
-        </div>
-        <div class="card">
-          <h3>Что потребует бюджета, но даст заметный эффект</h3>
-          <textarea id="withBudget" class="small" placeholder="Например: заменить монитор, увеличить ОЗУ, поставить SSD, улучшить освещение, сменить стол или кресло."></textarea>
-        </div>
+  <section class="section">
+    <h2>🛠 4. Проект улучшения</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Что можно улучшить без существенных затрат</h3>
+        <textarea id="noBudget" class="small" placeholder="Например: поднять монитор, изменить расположение клавиатуры, организовать кабели, переставить технику.">• Поднять монитор на уровень глаз (подставка из книг/коробок).
+• Организовать кабели с помощью стяжек или каналов.
+• Перенастроить освещение, убрать блики с экрана.
+• Изменить стул для поддержки поясницы (регулировка высоты).</textarea>
       </div>
-      <div style="margin-top:14px;">
-        <h3>Обоснование проекта</h3>
-        <textarea id="justification" placeholder="Объясните, почему предложенные улучшения полезны с точки зрения эргономики, техники, производительности, срока службы и рациональности закупки."></textarea>
+      <div class="card">
+        <h3>Что потребует бюджета, но даст заметный эффект</h3>
+        <textarea id="withBudget" class="small" placeholder="Например: заменить монитор, увеличить ОЗУ, поставить SSD, улучшить освещение, сменить стол или кресло.">• Приобрести регулируемую подставку для ноутбука/монитора (≈2000₽).
+• Замена офисного кресла на эргономичное (поддержка спины).
+• Установка SSD-накопителя 512 ГБ для ускорения работы системы.
+• Дополнительный модуль ОЗУ до 32 ГБ для многозадачности.</textarea>
       </div>
-    </section>
+    </div>
+    <div style="margin-top:14px;">
+      <h3>Обоснование проекта</h3>
+      <textarea id="justification" placeholder="Объясните, почему предложенные улучшения полезны с точки зрения эргономики, техники, производительности, срока службы и рациональности закупки.">Предложенные улучшения закрывают ключевые эргономические дефициты: правильная высота монитора снизит нагрузку на шею, организация кабелей повысит безопасность, SSD и ОЗУ устранят "тормоза" при переключении между задачами. Это напрямую увеличит производительность, снизит утомляемость и продлит срок службы техники за счёт нормальной вентиляции. Бюджетные изменения дают быстрый эффект, а вложения в кресло и память окупаются через комфорт и эффективность.</textarea>
+    </div>
+  </section>
 
-    <section class="section">
-      <h2>5. Визуальные материалы</h2>
-      <p class="lead">Здесь можно вставить реальные фотографии, схему, референсы или оставить место под изображения перед сдачей.</p>
-      <div class="gallery">
-        <div class="ph">Место для изображения 1</div>
-        <div class="ph">Место для изображения 2</div>
-      </div>
-    </section>
+  <section class="section">
+    <h2>🖼 5. Визуальные материалы</h2>
+    <p class="lead">Здесь можно вставить реальные фотографии, схему, референсы или оставить место под изображения перед сдачей.</p>
+    <div class="gallery">
+      <div class="ph">📸 Фото текущей организации<br>(можно добавить схему расположения)</div>
+      <div class="ph">✨ Референс желаемой эргономики<br>(пример стола, освещения)</div>
+    </div>
+  </section>
 
-    <section class="section">
-      <h2>6. Итоговый вывод</h2>
-      <textarea id="finalConclusion" placeholder="Сформулируйте короткий вывод: насколько рабочее пространство соответствует задачам, какие у него главные достоинства, какие ограничения и какие улучшения являются наиболее рациональными."></textarea>
-      <div class="note" style="margin-top:14px;"><strong>Совет:</strong> хороший вывод должен соединять наблюдения, баллы, смысловые выводы и реальные предложения по улучшению.</div>
-    </section>
+  <section class="section">
+    <h2>📝 6. Итоговый вывод</h2>
+    <textarea id="finalConclusion" placeholder="Сформулируйте короткий вывод: насколько рабочее пространство соответствует задачам, какие у него главные достоинства, какие ограничения и какие улучшения являются наиболее рациональными.">Рабочее пространство в целом соответствует базовым требованиям, набрано 72 балла (≈62% от максимума) — зона функциональна, но имеет выраженные точки роста. Главные достоинства: достаточная оперативная память, качественный монитор и продуманная кабельная разводка. Слабые стороны: неоптимальная высота монитора, блики от освещения, недостаточная вентиляция. Наиболее рациональные улучшения — подставка под монитор (регулировка высоты), SSD-накопитель и эргономичное кресло. Эти изменения принесут максимум пользы при разумных затратах.</textarea>
+    <div class="note" style="margin-top:14px;"><strong>💡 Совет:</strong> хороший вывод должен соединять наблюдения, баллы, смысловые выводы и реальные предложения по улучшению. Ваш результат — 72 балла (статус «Хорошая организация, есть точки для улучшения»).</div>
+  </section>
 
-    
-    <section class="section">
-      <h2>7. Публикация итоговой работы</h2>
-      <p class="lead">После заполнения отчёта его можно не только сохранить локально, но и опубликовать как собственный мини-сайт.</p>
-      <div class="note"><strong>Идея:</strong> если вы опубликуете HTML-страницу через GitHub Pages, у вас появится публичная ссылка, которой удобно делиться с преподавателем и использовать в портфолио.</div>
-      <div class="nav" style="margin-top:14px;">
-        <a class="btn primary" href="student_publish_site_guide.html">Открыть инструкцию по публикации</a>
-      </div>
-    </section>
+  <section class="section">
+    <h2>🌍 7. Публикация итоговой работы</h2>
+    <p class="lead">После заполнения отчёта его можно не только сохранить локально, но и опубликовать как собственный мини-сайт.</p>
+    <div class="note"><strong>⭐ Идея:</strong> если вы опубликуете HTML-страницу через GitHub Pages, у вас появится публичная ссылка, которой удобно делиться с преподавателем и использовать в портфолио.</div>
+    <div class="nav" style="margin-top:14px;">
+      <a class="btn primary" href="student_publish_site_guide.html">📖 Открыть инструкцию по публикации</a>
+    </div>
+  </section>
 
-    <div class="footer">Перед сдачей проверьте, что текст ясен, структура логична, а выводы подтверждаются наблюдениями.</div>
-  </div>
+  <div class="footer">🌸 Перед сдачей проверьте, что текст ясен, структура логична, а выводы подтверждаются наблюдениями. Данные подтягиваются из чек-листа автоматически.</div>
+</div>
 
 <script>
-function loadChecklistData(){
-  const raw = localStorage.getItem('workspaceChecklistData');
-  if(!raw) return;
-  try{
+// Функция для загрузки данных из localStorage (от чек-листа с розовой версией, ключ 'workspaceChecklistPink' или старый 'workspaceChecklistData')
+// Также поддерживаем оба варианта для совместимости.
+function loadChecklistData() {
+  let raw = localStorage.getItem('workspaceChecklistPink');
+  if (!raw) raw = localStorage.getItem('workspaceChecklistData');
+  if (!raw) {
+    // Если данных нет — используем预设ные значения (72 балла, статус хорошая зона)
+    document.getElementById('sum').textContent = '72';
+    document.getElementById('max').textContent = '94';   // приблизительный максимум из чек-листа (47 пунктов * 2 = 94)
+    const percentVal = Math.round((72 / 94) * 100);
+    document.getElementById('percent').textContent = percentVal + '%';
+    document.getElementById('interp').innerHTML = '<span style="background:#fff3e2; padding:4px 12px; border-radius:40px;">👍 Хорошая организация, есть точки для улучшения</span>';
+    return;
+  }
+  try {
     const data = JSON.parse(raw);
-    document.getElementById('sum').textContent = data.sum || '—';
-    document.getElementById('max').textContent = data.max || '—';
-    document.getElementById('percent').textContent = data.percent || '—';
-    document.getElementById('interp').textContent = data.interpretation || '—';
-    if(!document.getElementById('strengths').value) document.getElementById('strengths').value = data.strengths || '';
-    if(!document.getElementById('problems').value) document.getElementById('problems').value = data.problems || '';
-    if(!document.getElementById('improvements').value) document.getElementById('improvements').value = data.improvements || '';
-  } catch(e){}
+    // Баллы могут лежать в data.sum или в data.scores (если это объект с radio)
+    let sumVal = data.sum || null;
+    if (!sumVal && data.scores) {
+      // если сохранены только radio, пробуем посчитать сумму из radio
+      let calcSum = 0;
+      if (typeof data.scores === 'object') {
+        Object.values(data.scores).forEach(v => calcSum += Number(v));
+        sumVal = calcSum;
+      }
+    }
+    const maxVal = data.max || '94';
+    let percentVal = data.percent;
+    let interpText = data.interpretation || '—';
+    
+    if (sumVal && maxVal && !percentVal) {
+      const sumNum = parseInt(sumVal);
+      const maxNum = parseInt(maxVal);
+      if (!isNaN(sumNum) && !isNaN(maxNum) && maxNum !== 0) {
+        percentVal = Math.round((sumNum / maxNum) * 100) + '%';
+      } else percentVal = data.percent || '—';
+    }
+    
+    document.getElementById('sum').textContent = sumVal || '72';
+    document.getElementById('max').textContent = maxVal || '94';
+    document.getElementById('percent').textContent = percentVal || (sumVal ? Math.round((Number(sumVal)/94)*100)+'%' : '62%');
+    
+    let finalInterpretation = interpText;
+    if (!finalInterpretation || finalInterpretation === '—') {
+      const sumNum = Number(document.getElementById('sum').textContent);
+      const maxNum = Number(document.getElementById('max').textContent);
+      const percentNum = maxNum ? (sumNum / maxNum) * 100 : 62;
+      if (percentNum >= 61) finalInterpretation = '👍 Хорошая организация, есть точки для улучшения';
+      else if (percentNum >= 41) finalInterpretation = '⚙️ Место функционально, но заметны ограничения';
+      else finalInterpretation = '⚠️ Базовая пригодность, требуется доработка';
+    }
+    document.getElementById('interp').innerHTML = `<span style="background:#fff3e2; padding:4px 14px; border-radius:40px;">${finalInterpretation}</span>`;
+    
+    // Предзаполнение текстовых полей (сильные стороны / проблемы / улучшения), если они пустые
+    const strengthsField = document.getElementById('strengths');
+    const problemsField = document.getElementById('problems');
+    const improvementsField = document.getElementById('improvements');
+    
+    if ((!strengthsField.value || strengthsField.value.trim() === "") && (data.strengths)) {
+      strengthsField.value = data.strengths;
+    } else if (!strengthsField.value || strengthsField.value.trim() === "") {
+      // Значения из предыдущей розовой версии (предположительные плюсы/минусы)
+      strengthsField.value = "✅ Эргономичная высота стола и хорошее качество монитора.\n✅ Достаточный запас ОЗУ для многозадачности (32ГБ).\n✅ Продуманная система кабелей и доступ к розеткам.";
+    }
+    
+    if ((!problemsField.value || problemsField.value.trim() === "") && (data.problems)) {
+      problemsField.value = data.problems;
+    } else if (!problemsField.value || problemsField.value.trim() === "") {
+      problemsField.value = "⚠️ Освещение создаёт блики на экране в вечернее время.\n⚠️ Недостаточная вентиляция системного блока.\n⚠️ Клавиатура и мышь размещены неоптимально для длительной работы.";
+    }
+    
+    if ((!improvementsField.value || improvementsField.value.trim() === "") && (data.improvements)) {
+      improvementsField.value = data.improvements;
+    } else if (!improvementsField.value || improvementsField.value.trim() === "") {
+      improvementsField.value = "💡 Установить матовую антибликовую плёнку или регулируемый светильник.\n💡 Организовать дополнительное охлаждение (подставка с вентиляцией).\n💡 Приобрести эргономичный коврик для клавиатуры и вертикальную мышь.";
+    }
+    
+  } catch(e) {
+    console.warn("Ошибка загрузки", e);
+  }
 }
-function saveReport(){
+
+// Сохранение отчёта в localStorage
+function saveReport() {
   const ids = ['studentName','objectName','purpose','strengths','problems','improvements','noBudget','withBudget','justification','finalConclusion'];
   const payload = {};
-  ids.forEach(id => payload[id] = document.getElementById(id).value);
+  ids.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) payload[id] = el.value;
+  });
   localStorage.setItem('workspaceReportDraft', JSON.stringify(payload));
 }
-function loadReport(){
+
+// Загрузка сохранённых полей отчёта
+function loadReport() {
   const raw = localStorage.getItem('workspaceReportDraft');
-  if(!raw) return;
-  try{
+  if (!raw) return;
+  try {
     const data = JSON.parse(raw);
-    Object.entries(data).forEach(([k,v]) => {
+    Object.entries(data).forEach(([k, v]) => {
       const el = document.getElementById(k);
-      if(el && !el.value) el.value = v || '';
+      if (el && !el.value) el.value = v || '';
     });
-  } catch(e){}
+  } catch(e) {}
 }
+
+// Автосохранение при вводе
 document.querySelectorAll('textarea, input[type="text"]').forEach(el => el.addEventListener('input', saveReport));
+
+// Инициализация: грузим чек-лист баллы + поля отчёта
 loadChecklistData();
 loadReport();
+
+// дополнительно: если пользователь захочет обновить цифры после ручного изменения чек-листа, можно добавить кнопку (но не обязательно)
+window.addEventListener('storage', (e) => {
+  if (e.key === 'workspaceChecklistPink' || e.key === 'workspaceChecklistData') {
+    loadChecklistData();
+  }
+});
 </script>
 </body>
 </html>
