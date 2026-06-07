@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Шаблон отчёта студента | Аудит рабочего пространства</title>
   <style>
+    /* НЕЖНО-РОЗОВАЯ ПАЛИТРА (как в чек-листе) */
     :root {
       --bg: #fff5f7;
       --card: #ffffff;
@@ -142,6 +143,14 @@
     }
     .note strong{color:#c55b7c;}
     .footer{margin-top:28px;text-align:center;color:#b28090;font-size:14px;}
+    .result-badge {
+      display:inline-block;
+      background:#fff3e2;
+      padding:6px 18px;
+      border-radius:40px;
+      font-weight:600;
+      color:#b8621a;
+    }
     @media (max-width:900px){.grid,.summary,.gallery{grid-template-columns:1fr;}}
     @media print{
       body{background:#fff}
@@ -186,10 +195,10 @@
   <section class="section">
     <h2>📊 2. Итоги чек-листа</h2>
     <div class="summary">
-      <div class="sum-card"><strong>Набрано баллов</strong><div class="big" id="sum">—</div></div>
-      <div class="sum-card"><strong>Максимум</strong><div class="big" id="max">—</div></div>
-      <div class="sum-card"><strong>Процент</strong><div class="big" id="percent">—</div></div>
-      <div class="sum-card"><strong>Результат</strong><div id="interp" style="margin-top:8px; font-weight:700;">—</div></div>
+      <div class="sum-card"><strong>Набрано баллов</strong><div class="big" id="sum">72</div></div>
+      <div class="sum-card"><strong>Максимум</strong><div class="big" id="max">92</div></div>
+      <div class="sum-card"><strong>Процент</strong><div class="big" id="percent">78%</div></div>
+      <div class="sum-card"><strong>Результат</strong><div id="interp" style="margin-top:8px;"><span class="result-badge">👍 Хорошая организация, есть точки для улучшения</span></div></div>
     </div>
   </section>
 
@@ -198,16 +207,25 @@
     <div class="grid">
       <div class="card">
         <h3>✅ Сильные стороны</h3>
-        <textarea id="strengths" class="small" placeholder="Перенесите из чек-листа или сформулируйте заново."></textarea>
+        <textarea id="strengths" class="small" placeholder="Перенесите из чек-листа или сформулируйте заново.">✅ Удобная высота стола и комфортная посадка
+✅ Достаточный объём оперативной памяти для многозадачности
+✅ Хорошая кабельная организация и доступ к розеткам
+✅ Уединённое место, позволяющее концентрироваться</textarea>
       </div>
       <div class="card">
         <h3>⚠️ Проблемные зоны</h3>
-        <textarea id="problems" class="small" placeholder="Опишите основные ограничения и слабые места."></textarea>
+        <textarea id="problems" class="small" placeholder="Опишите основные ограничения и слабые места.">⚠️ Недостаточное освещение, создающее блики на экране
+⚠️ Отсутствие розетки поблизости (неудобное подключение)
+⚠️ Маленький диагональ монитора, не соответствующий задачам
+⚠️ Неисправный тачпад (требуется ремонт или замена)</textarea>
       </div>
     </div>
     <div style="margin-top:14px;">
       <h3>🚀 Три улучшения с наибольшим эффектом</h3>
-      <textarea id="improvements" placeholder="Укажите конкретные изменения и ожидаемый результат."></textarea>
+      <textarea id="improvements" placeholder="Укажите конкретные изменения и ожидаемый результат.">💡 Организовать дополнительную розетку поблизости от рабочего места
+💡 Приобрести внешний монитор большего размера (24-27 дюймов)
+💡 Починить тачпад или заменить его (использовать внешнюю мышь как временное решение)
+💡 Добавить настольный светильник с регулируемой яркостью для устранения бликов</textarea>
     </div>
   </section>
 
@@ -216,22 +234,22 @@
     <div class="grid">
       <div class="card">
         <h3>Что можно улучшить без существенных затрат</h3>
-        <textarea id="noBudget" class="small" placeholder="Например: поднять монитор, изменить расположение клавиатуры, организовать кабели, переставить технику.">• Поднять монитор на уровень глаз (подставка из книг/коробок).
-• Организовать кабели с помощью стяжек или каналов.
-• Перенастроить освещение, убрать блики с экрана.
-• Изменить стул для поддержки поясницы (регулировка высоты).</textarea>
+        <textarea id="noBudget" class="small" placeholder="Например: поднять монитор, изменить расположение клавиатуры, организовать кабели, переставить технику.">• Поднять монитор на уровень глаз (подставка из книг/коробок)
+• Организовать кабели с помощью стяжек или каналов
+• Перенастроить освещение, убрать блики с экрана (изменить угол наклона монитора)
+• Использовать временно внешнюю мышь вместо неисправного тачпада</textarea>
       </div>
       <div class="card">
         <h3>Что потребует бюджета, но даст заметный эффект</h3>
-        <textarea id="withBudget" class="small" placeholder="Например: заменить монитор, увеличить ОЗУ, поставить SSD, улучшить освещение, сменить стол или кресло.">• Приобрести регулируемую подставку для ноутбука/монитора (≈2000₽).
-• Замена офисного кресла на эргономичное (поддержка спины).
-• Установка SSD-накопителя 512 ГБ для ускорения работы системы.
-• Дополнительный модуль ОЗУ до 32 ГБ для многозадачности.</textarea>
+        <textarea id="withBudget" class="small" placeholder="Например: заменить монитор, увеличить ОЗУ, поставить SSD, улучшить освещение, сменить стол или кресло.">• Приобрести внешний монитор 24-27 дюймов с антибликовым покрытием (≈10 000-15 000₽)
+• Купить регулируемую подставку для ноутбука (≈2000₽)
+• Установить дополнительный модуль ОЗУ до 32 ГБ (≈5000₽)
+• Приобрести эргономичное кресло с поддержкой спины (≈8000-15000₽)</textarea>
       </div>
     </div>
     <div style="margin-top:14px;">
       <h3>Обоснование проекта</h3>
-      <textarea id="justification" placeholder="Объясните, почему предложенные улучшения полезны с точки зрения эргономики, техники, производительности, срока службы и рациональности закупки.">Предложенные улучшения закрывают ключевые эргономические дефициты: правильная высота монитора снизит нагрузку на шею, организация кабелей повысит безопасность, SSD и ОЗУ устранят "тормоза" при переключении между задачами. Это напрямую увеличит производительность, снизит утомляемость и продлит срок службы техники за счёт нормальной вентиляции. Бюджетные изменения дают быстрый эффект, а вложения в кресло и память окупаются через комфорт и эффективность.</textarea>
+      <textarea id="justification" placeholder="Объясните, почему предложенные улучшения полезны с точки зрения эргономики, техники, производительности, срока службы и рациональности закупки.">Предложенные улучшения закрывают ключевые дефициты, выявленные в ходе аудита (72 балла из 92, что составляет 78%). Установка внешнего монитора решит проблему маленького экрана и снизит нагрузку на зрение. Организация дополнительной розетки повысит удобство и безопасность. Ремонт тачпада или использование мыши восстановит полноценную функциональность. Регулируемое освещение устранит блики, что особенно важно при длительной работе. Эти изменения при разумных затратах существенно повысят производительность и комфорт, а также продлят срок службы техники за счёт правильной эргономики.</textarea>
     </div>
   </section>
 
@@ -240,14 +258,14 @@
     <p class="lead">Здесь можно вставить реальные фотографии, схему, референсы или оставить место под изображения перед сдачей.</p>
     <div class="gallery">
       <div class="ph">📸 Фото текущей организации<br>(можно добавить схему расположения)</div>
-      <div class="ph">✨ Референс желаемой эргономики<br>(пример стола, освещения)</div>
+      <div class="ph">✨ Референс желаемой эргономики<br>(пример стола, освещения, внешнего монитора)</div>
     </div>
   </section>
 
   <section class="section">
     <h2>📝 6. Итоговый вывод</h2>
-    <textarea id="finalConclusion" placeholder="Сформулируйте короткий вывод: насколько рабочее пространство соответствует задачам, какие у него главные достоинства, какие ограничения и какие улучшения являются наиболее рациональными.">Рабочее пространство в целом соответствует базовым требованиям, набрано 72 балла (≈62% от максимума) — зона функциональна, но имеет выраженные точки роста. Главные достоинства: достаточная оперативная память, качественный монитор и продуманная кабельная разводка. Слабые стороны: неоптимальная высота монитора, блики от освещения, недостаточная вентиляция. Наиболее рациональные улучшения — подставка под монитор (регулировка высоты), SSD-накопитель и эргономичное кресло. Эти изменения принесут максимум пользы при разумных затратах.</textarea>
-    <div class="note" style="margin-top:14px;"><strong>💡 Совет:</strong> хороший вывод должен соединять наблюдения, баллы, смысловые выводы и реальные предложения по улучшению. Ваш результат — 72 балла (статус «Хорошая организация, есть точки для улучшения»).</div>
+    <textarea id="finalConclusion" placeholder="Сформулируйте короткий вывод: насколько рабочее пространство соответствует задачам, какие у него главные достоинства, какие ограничения и какие улучшения являются наиболее рациональными.">Рабочее пространство в целом соответствует базовым требованиям (72 балла из 92, 78%) — зона функциональна, но имеет выраженные точки роста. Главные достоинства: удобная посадка, достаточный объём ОЗУ, хорошая кабельная организация. Слабые стороны: недостаточное освещение с бликами, маленький монитор, неудобное расположение розетки, неисправный тачпад. Наиболее рациональные улучшения: приобретение внешнего монитора (24-27 дюймов) и организация дополнительной розетки. Эти изменения принесут максимум пользы при разумных затратах и позволят поднять оценку до 85+ баллов (отличная организация).</textarea>
+    <div class="note" style="margin-top:14px;"><strong>💡 Совет:</strong> хороший вывод должен соединять наблюдения, баллы, смысловые выводы и реальные предложения по улучшению. Ваш результат — 72 балла (78%, статус «Хорошая организация, есть точки для улучшения»).</div>
   </section>
 
   <section class="section">
@@ -259,87 +277,61 @@
     </div>
   </section>
 
-  <div class="footer">🌸 Перед сдачей проверьте, что текст ясен, структура логична, а выводы подтверждаются наблюдениями. Данные подтягиваются из чек-листа автоматически.</div>
+  <div class="footer">🌸 Перед сдачей проверьте, что текст ясен, структура логична, а выводы подтверждаются наблюдениями. Данные чек-листа: 72 балла (78%).</div>
 </div>
 
 <script>
-// Функция для загрузки данных из localStorage (от чек-листа с розовой версией, ключ 'workspaceChecklistPink' или старый 'workspaceChecklistData')
-// Также поддерживаем оба варианта для совместимости.
+// Данные из чек-листа (72 балла, максимально 92, процент 78%)
+const checklistData = {
+  sum: 72,
+  max: 92,
+  percent: "78%",
+  interpretation: "Хорошая организация, есть точки для улучшения",
+  strengths: "✅ Удобная высота стола и комфортная посадка\n✅ Достаточный объём оперативной памяти для многозадачности\n✅ Хорошая кабельная организация и доступ к розеткам\n✅ Уединённое место, позволяющее концентрироваться",
+  problems: "⚠️ Недостаточное освещение, создающее блики на экране\n⚠️ Отсутствие розетки поблизости (неудобное подключение)\n⚠️ Маленький диагональ монитора, не соответствующий задачам\n⚠️ Неисправный тачпад (требуется ремонт или замена)",
+  improvements: "💡 Организовать дополнительную розетку поблизости от рабочего места\n💡 Приобрести внешний монитор большего размера (24-27 дюймов)\n💡 Починить тачпад или заменить его (использовать внешнюю мышь как временное решение)\n💡 Добавить настольный светильник с регулируемой яркостью для устранения бликов"
+};
+
+// Функция для загрузки данных из localStorage (если есть сохранённые из чек-листа)
 function loadChecklistData() {
-  let raw = localStorage.getItem('workspaceChecklistPink');
-  if (!raw) raw = localStorage.getItem('workspaceChecklistData');
+  let raw = localStorage.getItem('workspaceChecklistData');
   if (!raw) {
-    // Если данных нет — используем预设ные значения (72 балла, статус хорошая зона)
-    document.getElementById('sum').textContent = '72';
-    document.getElementById('max').textContent = '94';   // приблизительный максимум из чек-листа (47 пунктов * 2 = 94)
-    const percentVal = Math.round((72 / 94) * 100);
-    document.getElementById('percent').textContent = percentVal + '%';
-    document.getElementById('interp').innerHTML = '<span style="background:#fff3e2; padding:4px 12px; border-radius:40px;">👍 Хорошая организация, есть точки для улучшения</span>';
+    // Если нет сохранённых данных, используем预设ные значения (72 балла)
+    document.getElementById('sum').textContent = checklistData.sum;
+    document.getElementById('max').textContent = checklistData.max;
+    document.getElementById('percent').textContent = checklistData.percent;
+    document.getElementById('interp').innerHTML = `<span class="result-badge">👍 ${checklistData.interpretation}</span>`;
+    
+    // Заполняем текстовые поля, если они пустые
+    if (!document.getElementById('strengths').value || document.getElementById('strengths').value.trim() === "") {
+      document.getElementById('strengths').value = checklistData.strengths;
+    }
+    if (!document.getElementById('problems').value || document.getElementById('problems').value.trim() === "") {
+      document.getElementById('problems').value = checklistData.problems;
+    }
+    if (!document.getElementById('improvements').value || document.getElementById('improvements').value.trim() === "") {
+      document.getElementById('improvements').value = checklistData.improvements;
+    }
     return;
   }
   try {
     const data = JSON.parse(raw);
-    // Баллы могут лежать в data.sum или в data.scores (если это объект с radio)
-    let sumVal = data.sum || null;
-    if (!sumVal && data.scores) {
-      // если сохранены только radio, пробуем посчитать сумму из radio
-      let calcSum = 0;
-      if (typeof data.scores === 'object') {
-        Object.values(data.scores).forEach(v => calcSum += Number(v));
-        sumVal = calcSum;
-      }
+    document.getElementById('sum').textContent = data.sum || checklistData.sum;
+    document.getElementById('max').textContent = data.max || checklistData.max;
+    document.getElementById('percent').textContent = data.percent || checklistData.percent;
+    
+    let interpText = data.interpretation || checklistData.interpretation;
+    document.getElementById('interp').innerHTML = `<span class="result-badge">👍 ${interpText}</span>`;
+    
+    if (!document.getElementById('strengths').value || document.getElementById('strengths').value.trim() === "") {
+      document.getElementById('strengths').value = data.strengths || checklistData.strengths;
     }
-    const maxVal = data.max || '94';
-    let percentVal = data.percent;
-    let interpText = data.interpretation || '—';
-    
-    if (sumVal && maxVal && !percentVal) {
-      const sumNum = parseInt(sumVal);
-      const maxNum = parseInt(maxVal);
-      if (!isNaN(sumNum) && !isNaN(maxNum) && maxNum !== 0) {
-        percentVal = Math.round((sumNum / maxNum) * 100) + '%';
-      } else percentVal = data.percent || '—';
+    if (!document.getElementById('problems').value || document.getElementById('problems').value.trim() === "") {
+      document.getElementById('problems').value = data.problems || checklistData.problems;
     }
-    
-    document.getElementById('sum').textContent = sumVal || '72';
-    document.getElementById('max').textContent = maxVal || '94';
-    document.getElementById('percent').textContent = percentVal || (sumVal ? Math.round((Number(sumVal)/94)*100)+'%' : '62%');
-    
-    let finalInterpretation = interpText;
-    if (!finalInterpretation || finalInterpretation === '—') {
-      const sumNum = Number(document.getElementById('sum').textContent);
-      const maxNum = Number(document.getElementById('max').textContent);
-      const percentNum = maxNum ? (sumNum / maxNum) * 100 : 62;
-      if (percentNum >= 61) finalInterpretation = '👍 Хорошая организация, есть точки для улучшения';
-      else if (percentNum >= 41) finalInterpretation = '⚙️ Место функционально, но заметны ограничения';
-      else finalInterpretation = '⚠️ Базовая пригодность, требуется доработка';
+    if (!document.getElementById('improvements').value || document.getElementById('improvements').value.trim() === "") {
+      document.getElementById('improvements').value = data.improvements || checklistData.improvements;
     }
-    document.getElementById('interp').innerHTML = `<span style="background:#fff3e2; padding:4px 14px; border-radius:40px;">${finalInterpretation}</span>`;
-    
-    // Предзаполнение текстовых полей (сильные стороны / проблемы / улучшения), если они пустые
-    const strengthsField = document.getElementById('strengths');
-    const problemsField = document.getElementById('problems');
-    const improvementsField = document.getElementById('improvements');
-    
-    if ((!strengthsField.value || strengthsField.value.trim() === "") && (data.strengths)) {
-      strengthsField.value = data.strengths;
-    } else if (!strengthsField.value || strengthsField.value.trim() === "") {
-      // Значения из предыдущей розовой версии (предположительные плюсы/минусы)
-      strengthsField.value = "✅ Эргономичная высота стола и хорошее качество монитора.\n✅ Достаточный запас ОЗУ для многозадачности (32ГБ).\n✅ Продуманная система кабелей и доступ к розеткам.";
-    }
-    
-    if ((!problemsField.value || problemsField.value.trim() === "") && (data.problems)) {
-      problemsField.value = data.problems;
-    } else if (!problemsField.value || problemsField.value.trim() === "") {
-      problemsField.value = "⚠️ Освещение создаёт блики на экране в вечернее время.\n⚠️ Недостаточная вентиляция системного блока.\n⚠️ Клавиатура и мышь размещены неоптимально для длительной работы.";
-    }
-    
-    if ((!improvementsField.value || improvementsField.value.trim() === "") && (data.improvements)) {
-      improvementsField.value = data.improvements;
-    } else if (!improvementsField.value || improvementsField.value.trim() === "") {
-      improvementsField.value = "💡 Установить матовую антибликовую плёнку или регулируемый светильник.\n💡 Организовать дополнительное охлаждение (подставка с вентиляцией).\n💡 Приобрести эргономичный коврик для клавиатуры и вертикальную мышь.";
-    }
-    
   } catch(e) {
     console.warn("Ошибка загрузки", e);
   }
@@ -372,13 +364,13 @@ function loadReport() {
 // Автосохранение при вводе
 document.querySelectorAll('textarea, input[type="text"]').forEach(el => el.addEventListener('input', saveReport));
 
-// Инициализация: грузим чек-лист баллы + поля отчёта
+// Инициализация
 loadChecklistData();
 loadReport();
 
-// дополнительно: если пользователь захочет обновить цифры после ручного изменения чек-листа, можно добавить кнопку (но не обязательно)
+// Слушаем изменения в localStorage (если данные чек-листа обновились на другой вкладке)
 window.addEventListener('storage', (e) => {
-  if (e.key === 'workspaceChecklistPink' || e.key === 'workspaceChecklistData') {
+  if (e.key === 'workspaceChecklistData') {
     loadChecklistData();
   }
 });
